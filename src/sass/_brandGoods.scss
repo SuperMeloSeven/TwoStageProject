@@ -1,6 +1,90 @@
+%aStyle{
+  text-decoration: none;
+  color: black;
+}
+
 .brand_goods{
   width: 1000px;
   height: 1000px;
   margin: 35px auto 0;
-  background-color: #ccc;
+  border: 1px solid #ccc;
+  .brand_title{
+    // &::before{
+    //   content: "";
+    //   width: 97%;
+    //   height: 1px;
+    //   left: 1.5%;
+    //   top: 15px;
+    //   position: absolute;
+    //   background-color: #b7b7b7;
+    // }
+    width: 1000px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 30px;
+    margin: 20px auto;
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    .brand_line{
+      width: 400px;
+      height: 1px;
+      margin-top: 15px;
+      background-color: #b7b7b7;
+    }
+  }
+  .cate_list{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    a{
+      display: block;
+      text-decoration: none;
+      color: black;
+      font-size: 24px;
+      text-align: center;
+    }
+    .cate_li{
+      margin-top: 20px;
+    }
+  }
+  .cate_line{
+    width: 97%;
+    height: 1px;
+    margin: 20px auto 0;
+    background-color: #b7b7b7;
+  }
+}
+
+// 渲染区域
+.cate_detail{
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  .cate_detail_li{
+    height: 300px;
+    font-size: 14px;
+    .ca_de_img{
+      width: 165px;
+      height: 180px;
+    }
+  }
+}
+
+.ca_de_img{
+  width: 165px;
+  height: 180px;
+  img{
+    width: 100%;
+  }
+}
+
+.ca_de_title{
+  height: 55px;
+  margin-bottom: 5px;
+  a{
+    @extend %aStyle;
+  }
 }

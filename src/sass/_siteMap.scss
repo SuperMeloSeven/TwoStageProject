@@ -1,0 +1,18 @@
+.site_map{
+  width: 1000px;
+  height: 610px;
+  margin: 75px auto 0;
+  text-align: center;
+  background-color: coral;
+  .site_line{
+    width: 1000px;
+    height: 30px;
+    margin: 20px auto;
+    text-align: center;
+    // .site_line::before{
+    //   content: "";
+    //   height: 1px;
+    //   background-color: #b7b7b7;
+    // }
+  }
+}

@@ -10,3 +10,10 @@
     text-align: center;
   }
 }
+
+.footer_content{
+  .footer_nav{
+    display: flex;
+    justify-content: space-around;
+  }
+}

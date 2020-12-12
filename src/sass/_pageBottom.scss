@@ -1,15 +1,160 @@
-.page_bottom{
+%fea_main_img {
+  width: 100%;
+  // height: 100%;
+  display: block;
+
+  img {
+    width: 99%;
+  }
+}
+
+%fea_main_title {
+  font-size: 24px;
+  text-decoration: none;
+
+  h1 {
+    margin: 17px 0;
+    color: black;
+
+    &:hover {
+      color: #999;
+      text-decoration: underline;
+    }
+  }
+}
+
+%fea_main_btn {
+  width: 200px;
+  height: 48px;
+  padding: 0 3px 0 7px;
+  line-height: 48px;
+  font-size: 18px;
+  display: block;
+}
+
+%contact{
+  width: 75px;
+  height: 75px;
+  display: block;
+  background: url(../images/share.png) no-repeat transparent;
+}
+
+$fea_two: 48%;
+$fea_three: 32%;
+
+
+.page_bottom {
   width: 100%;
   margin: 80px auto 0;
   position: relative;
   top: 110px;
-  .feature{
+
+  .feature {
     width: 1000px;
     margin: 40px auto 0;
     background-color: antiquewhite;
+
+    .fea_title {
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      background-color: #464646;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .fea_main {
+      width: 100%;
+      height: 476px;
+      margin: 20px auto 0;
+      display: flex;
+      justify-content: space-between;
+    }
   }
-  .infomation{
+
+  .infomation {
     height: 360px;
-    background-color: #999;
+    text-align: center;
+    color: #fff;
+    background-color: #464646;
+  }
+}
+
+.fea_main_two {
+  width: $fea_two;
+
+  // height: 100%;
+  .fea_main_img {
+    @extend %fea_main_img;
+  }
+
+  .fea_main_title {
+    @extend %fea_main_title;
+  }
+
+  .fea_main_btn {
+    width: 100%;
+    a{
+      @extend %fea_main_btn;
+      text-decoration: none;
+      background-color: black;
+      color: #fff;
+      border: 1px solid transparent;
+      text-align: center;
+      &:hover {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #000;
+      }
+    }
+  }
+}
+
+.fea_main_three {
+  width: $fea_three;
+
+  .fea_main_img {
+    @extend %fea_main_img;
+  }
+
+  .fea_main_title {
+    @extend %fea_main_title;
+  }
+
+  .fea_main_btn2 {
+    width: 100%;
+    a{
+      @extend %fea_main_btn;
+      color: #999;
+      text-align: left;
+    }
+  }
+}
+
+.infomation{
+  h1{
+    font-size: 30px;
+    margin: 78px auto 35px;
+    display: inline-block;
+  }
+  p{
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.about{
+  width: 210px;
+  margin: 37px auto 0;
+  display: flex;
+  justify-content: space-around;
+  a{
+    @extend %contact;
+  }
+  .weibo{
+    background-position: -75px 0;
+  }
+  .wechat{
+    background-position: -75px -75px;
   }
 }

@@ -5,9 +5,9 @@
 
 .brand_goods{
   width: 1000px;
-  height: 1000px;
+  // height: 1000px;
   margin: 35px auto 0;
-  border: 1px solid #ccc;
+  // border: 1px solid #ccc;
   .brand_title{
     // &::before{
     //   content: "";
@@ -55,6 +55,26 @@
     margin: 20px auto 0;
     background-color: #b7b7b7;
   }
+  .brand_btn{
+    width: 100%;
+    text-align: center;
+    a{
+      width: 398px;
+      height: 48px;
+      line-height: 48px;
+      margin: 0 auto;
+      text-decoration: none;
+      border: 1px solid transparent;
+      display: inline-block;
+      color: #fff;
+      background-color: #000;
+      &:hover{
+        color: #000;
+        background-color: #fff;
+        border: 1px solid #000;
+      }
+    }
+  }
 }
 
 // 渲染区域
@@ -64,11 +84,16 @@
   display: flex;
   justify-content: space-around;
   .cate_detail_li{
-    height: 300px;
+    height: 298px;
     font-size: 14px;
+    border: 1px solid transparent;
+    margin-top: 20px;
     .ca_de_img{
       width: 165px;
       height: 180px;
+    }
+    &:hover{
+      border: 1px solid #000;
     }
   }
 }
@@ -87,4 +112,13 @@
   a{
     @extend %aStyle;
   }
+}
+
+.now_price{
+  font-weight: bold;
+}
+
+.old_price{
+  color: red;
+  font-weight: bold;
 }

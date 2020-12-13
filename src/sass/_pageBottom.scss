@@ -52,15 +52,16 @@ $fea_three: 32%;
   .feature {
     width: 1000px;
     margin: 40px auto 0;
-    background-color: antiquewhite;
+    // background-color: antiquewhite;
 
     .fea_title {
-      width: 100%;
+      width: 98%;
       height: 40px;
       line-height: 40px;
       background-color: #464646;
       color: #fff;
       font-size: 18px;
+      padding-left: 20px;
     }
 
     .fea_main {
@@ -101,6 +102,10 @@ $fea_three: 32%;
       color: #fff;
       border: 1px solid transparent;
       text-align: center;
+      .font20{
+        font-size: 20px;
+        margin-left: 5px;
+      }
       &:hover {
         background-color: #fff;
         color: #000;
@@ -123,10 +128,17 @@ $fea_three: 32%;
 
   .fea_main_btn2 {
     width: 100%;
+    .font20{
+      font-size: 20px;
+      margin-left: 5px;
+    }
     a{
       @extend %fea_main_btn;
-      color: #999;
+      color: black;
       text-align: left;
+      &:hover{
+        color: #ccc;
+      }
     }
   }
 }

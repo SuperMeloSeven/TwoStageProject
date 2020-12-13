@@ -101,6 +101,9 @@ table {
   justify-content: space-around;
   font-size: 12px;
 }
+.header_content .header_tools .font25 {
+  font-size: 25px !important;
+}
 
 .header_extend {
   width: 100%;
@@ -156,6 +159,10 @@ table {
   color: #ccc;
   border: 1px solid transparent;
 }
+.reg_form .reg_r .reg_btn .font20 {
+  font-size: 20px;
+  margin-left: 5px;
+}
 .reg_form .reg_r .reg_btn span {
   visibility: visible;
 }
@@ -199,6 +206,10 @@ table {
   border: 1px solid transparent;
   cursor: pointer;
 }
+.confirm_btn .font20 {
+  font-size: 20px;
+  margin-left: 5px;
+}
 .confirm_btn:hover {
   border: 1px solid #000;
   background-color: #fff;
@@ -234,7 +245,7 @@ table {
   width: 100%;
   height: auto;
   position: relative;
-  top: 80px;
+  top: 110px;
 }
 .page_content .notice {
   height: 30px;

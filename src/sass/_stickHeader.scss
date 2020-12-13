@@ -53,6 +53,9 @@ $aColor: #fff;
     display: flex;
     justify-content: space-around;
     font-size: 12px;
+    .font25{
+      font-size: 25px !important;
+    }
   }
 }
 
@@ -118,6 +121,10 @@ $aColor: #fff;
       background-color: black;
       color: #ccc;
       border: 1px solid transparent;
+      .font20{
+        font-size: 20px;
+        margin-left: 5px;
+      }
       span{
         visibility: visible;
       }
@@ -178,6 +185,10 @@ $aColor: #fff;
   font-size: 18px;
   border: 1px solid transparent;
   cursor: pointer;
+  .font20{
+    font-size: 20px;
+    margin-left: 5px;
+  }
   &:hover{
     border: 1px solid #000;
     background-color: #fff;

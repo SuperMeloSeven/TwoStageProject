@@ -101,6 +101,9 @@ table {
   justify-content: space-around;
   font-size: 12px;
 }
+.header_content .header_tools .font25 {
+  font-size: 25px !important;
+}
 
 .header_extend {
   width: 100%;
@@ -156,6 +159,10 @@ table {
   color: #ccc;
   border: 1px solid transparent;
 }
+.reg_form .reg_r .reg_btn .font20 {
+  font-size: 20px;
+  margin-left: 5px;
+}
 .reg_form .reg_r .reg_btn span {
   visibility: visible;
 }
@@ -198,6 +205,10 @@ table {
   font-size: 18px;
   border: 1px solid transparent;
   cursor: pointer;
+}
+.confirm_btn .font20 {
+  font-size: 20px;
+  margin-left: 5px;
 }
 .confirm_btn:hover {
   border: 1px solid #000;
@@ -243,7 +254,6 @@ table {
 }
 .page_main .banner {
   height: 618px;
-  background-color: brown;
 }
 
 .notice .notice_content {
@@ -269,29 +279,47 @@ table {
 }
 .banner .slide {
   height: 582px;
-  background-color: brown;
   position: relative;
+}
+.banner .slide img {
+  width: 100%;
 }
 .banner .slide_prev {
   top: 50%;
   left: 0;
   margin-top: -50px;
 }
+.banner .slide_prev a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
 .banner .slide_next {
   top: 50%;
   right: 0;
   margin-top: -50px;
 }
+.banner .slide_next a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
 .banner .slide_menu {
   width: 100%;
-  height: 30px;
-  padding-top: 6px;
-  line-height: 36px;
+  height: 40px;
+  padding-top: 5px;
+  line-height: 45px;
   font-size: 13px;
   margin: 0 auto;
   color: #333;
   position: absolute;
-  bottom: 0;
+  bottom: 45px;
   background-color: #fff;
 }
 
@@ -371,6 +399,10 @@ table {
   display: inline-block;
   color: #fff;
   background-color: #000;
+}
+.brand_goods .brand_btn a .font20 {
+  font-size: 20px;
+  margin-left: 5px;
 }
 .brand_goods .brand_btn a:hover {
   color: #000;
@@ -466,15 +498,15 @@ table {
 .page_bottom .feature {
   width: 1000px;
   margin: 40px auto 0;
-  background-color: antiquewhite;
 }
 .page_bottom .feature .fea_title {
-  width: 100%;
+  width: 98%;
   height: 40px;
   line-height: 40px;
   background-color: #464646;
   color: #fff;
   font-size: 18px;
+  padding-left: 20px;
 }
 .page_bottom .feature .fea_main {
   width: 100%;
@@ -503,6 +535,10 @@ table {
   border: 1px solid transparent;
   text-align: center;
 }
+.fea_main_two .fea_main_btn a .font20 {
+  font-size: 20px;
+  margin-left: 5px;
+}
 .fea_main_two .fea_main_btn a:hover {
   background-color: #fff;
   color: #000;
@@ -515,9 +551,16 @@ table {
 .fea_main_three .fea_main_btn2 {
   width: 100%;
 }
+.fea_main_three .fea_main_btn2 .font20 {
+  font-size: 20px;
+  margin-left: 5px;
+}
 .fea_main_three .fea_main_btn2 a {
-  color: #999;
+  color: black;
   text-align: left;
+}
+.fea_main_three .fea_main_btn2 a:hover {
+  color: #ccc;
 }
 
 .infomation h1 {
@@ -587,6 +630,13 @@ table {
 }
 .site_li .site_title {
   margin-bottom: 20px;
+  font-weight: bolder;
+}
+.site_li .site_inner {
+  font-weight: bold;
+}
+.site_li .site_inner a:hover {
+  color: #999;
 }
 
 a {

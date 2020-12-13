@@ -44,5 +44,12 @@
   }
   .site_title{
     margin-bottom: 20px;
+    font-weight: bolder;
+  }
+  .site_inner{
+    font-weight: bold;
+    a:hover{
+      color: #999;
+    }
   }
 }

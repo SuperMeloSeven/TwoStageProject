@@ -6,6 +6,11 @@ $aColor: #fff;
 %reg30percent{
   width: 30%;
 }
+%form_title{
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
 
 .stick_header{
@@ -57,14 +62,14 @@ $aColor: #fff;
   height: 320px;
   background-color: #fff;
   padding: 40px 0;
-  display: block;
+  display: none;
   .header_register{
     height: 315px;
     display: none;
   }
   .header_login{
     height: 315px;
-    display: block;
+    display: none;
   }
   .reg_form{
     width: 1000px;
@@ -110,9 +115,24 @@ $aColor: #fff;
       height: 44px;
       line-height: 46px;
       text-align: center;
-      background-color: #ccc;
-      border: 1px solid #000;
+      background-color: black;
+      color: #ccc;
+      border: 1px solid transparent;
+      span{
+        visibility: visible;
+      }
     }
+    // 不能注册时按钮的样式
+    // .reg_btn{
+    //   height: 44px;
+    //   line-height: 46px;
+    //   text-align: center;
+    //   background-color: #ccc;
+    //   border: 1px solid #000;
+    //   span{
+    //     visibility: hidden;
+    //   }
+    // }
   }
 }
 .login_content{
@@ -120,12 +140,16 @@ $aColor: #fff;
   height: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   .reg_confirm{
-    @extend %reg30percent;
+    width: 40%;
+    text-align: center;
+    h1{
+      @extend %form_title;
+    }
   }
   .login_line{
-    @extend %reg30percent;
+    width: 10%;
     height: 100%;
     .log_line{
       width: 1px;
@@ -134,9 +158,42 @@ $aColor: #fff;
     }
   }
   .login_form{
-    @extend %reg30percent;
+    width: 50%;
+    h1{
+      @extend %form_title;
+    }
+    p{
+      margin-bottom: 20px;
+    }
   }
 }
+.confirm_btn{
+  width: 148px;
+  height: 38px;
+  line-height: 38px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 18px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  &:hover{
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+  }
+}
+.login_form{
+  .login_option{
+    width: 60%;
+    input{
+      width: 100%;
+      height: 40px;
+    }
+  }
+}
+
 
 
 // 导航相关

@@ -1,0 +1,403 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.header_content a, .nav_content a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.reg_form .reg_l, .reg_form .reg_c, .reg_form .reg_r {
+  width: 30%;
+}
+
+.login_content .reg_confirm h1, .login_content .login_form h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.stick_header {
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  z-index: 999;
+}
+.stick_header .header {
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  margin: 0 auto;
+  position: relative;
+}
+.stick_header .nav {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background-color: #464646;
+  position: relative;
+}
+
+.header_content {
+  height: 100%;
+  padding-left: 68px;
+  padding-right: 84px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.header_content .iconfont {
+  margin-left: 10px;
+}
+.header_content .header_tools {
+  width: 510px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 12px;
+}
+
+.header_extend {
+  width: 100%;
+  height: 320px;
+  background-color: #fff;
+  padding: 40px 0;
+  display: none;
+}
+.header_extend .header_register {
+  height: 315px;
+  display: none;
+}
+.header_extend .header_login {
+  height: 315px;
+  display: none;
+}
+.header_extend .reg_form {
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.header_extend .reg_form ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.reg_form .reg_title {
+  margin-bottom: 20px;
+}
+.reg_form input {
+  width: 100%;
+  height: 40px;
+}
+.reg_form .reg_r .male {
+  width: 25%;
+  height: 20px;
+}
+.reg_form .reg_r .female {
+  width: 25%;
+  height: 20px;
+}
+.reg_form .reg_r a {
+  display: block;
+}
+.reg_form .reg_r .reg_btn {
+  height: 44px;
+  line-height: 46px;
+  text-align: center;
+  background-color: black;
+  color: #ccc;
+  border: 1px solid transparent;
+}
+.reg_form .reg_r .reg_btn span {
+  visibility: visible;
+}
+
+.login_content {
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+.login_content .reg_confirm {
+  width: 40%;
+  text-align: center;
+}
+.login_content .login_line {
+  width: 10%;
+  height: 100%;
+}
+.login_content .login_line .log_line {
+  width: 1px;
+  height: 100%;
+  background-color: #464646;
+}
+.login_content .login_form {
+  width: 50%;
+}
+.login_content .login_form p {
+  margin-bottom: 20px;
+}
+
+.confirm_btn {
+  width: 148px;
+  height: 38px;
+  line-height: 38px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 18px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.confirm_btn:hover {
+  border: 1px solid #000;
+  background-color: #fff;
+  color: #000;
+}
+
+.login_form .login_option {
+  width: 60%;
+}
+.login_form .login_option input {
+  width: 100%;
+  height: 40px;
+}
+
+.nav_content {
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+}
+
+.nav_extend {
+  width: 100%;
+  height: 262px;
+  background-color: #fff;
+  display: none;
+  position: absolute;
+  z-index: 998;
+}
+
+.page_content {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 80px;
+}
+.page_content .notice {
+  height: 30px;
+  padding: 15px 0;
+  text-align: left;
+  background-color: #ebe9e9;
+  font-size: 12px;
+}
+.page_content .notice .notice_content {
+  width: 1000px;
+  margin: 0 auto;
+}
+.page_content .cart_body {
+  width: 1000px;
+  height: 500px;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+.cart_body .cart_title {
+  font-size: 26px;
+  margin-bottom: 26px;
+}
+
+.cart_detail {
+  padding-bottom: 20px;
+  border-top: 1px solid #bbbaba;
+  border-bottom: 1px solid #bbbaba;
+}
+.cart_detail a {
+  color: black;
+}
+.cart_detail .ca_de_top {
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.cart_detail .ca_de_goods {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+.cart_detail .ca_de_goods .goods_price_li {
+  font-weight: bold;
+  font-size: 18px;
+  color: #db0d0d;
+  margin-bottom: 20px;
+}
+
+.goods_info_title {
+  font-size: 18px;
+  line-height: 18px;
+  margin-bottom: 30px;
+}
+
+.goods_info_txt {
+  font-size: 14px;
+  line-height: 14px;
+  margin-bottom: 10px;
+}
+
+.goods_price_num {
+  text-align: center;
+  display: flex;
+}
+.goods_price_num a {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  border: 1px solid #999;
+  display: inline-block;
+  margin-top: 3px;
+}
+.goods_price_num input {
+  width: 50px;
+  height: 20px;
+  text-align: center;
+  margin-top: 3px;
+}
+
+.cart_bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  font-size: 18px;
+}
+.cart_bottom .ca_pr_li {
+  margin-bottom: 20px;
+}
+.cart_bottom .ca_pr_li .ca_pr_total {
+  font-size: 18px !important;
+  font-weight: bold;
+  color: #db0d0d;
+}
+
+.ca_pr_btn {
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.ca_pr_btn a {
+  width: 100%;
+  height: 100%;
+  background-color: #db0d0d;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer {
+  width: 100%;
+  height: 200px;
+  background-color: black;
+  position: relative;
+  top: 110px;
+}
+.footer .footer_content {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer_content {
+  font-size: 12px;
+}
+.footer_content .footer_nav {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 18px 0;
+}
+.footer_content .footer_logo {
+  width: 67px;
+  height: 50px;
+  margin: 0 auto;
+}
+.footer_content .footer_logo img {
+  width: 100%;
+}
+.footer_content .footer_info {
+  line-height: 20px;
+  color: #fff;
+  margin: 12px auto;
+  text-align: center;
+}
+.footer_content .police {
+  width: 60px;
+  margin: 0 auto;
+}
+.footer_content .police img {
+  width: 100%;
+}
+
+.line_chat {
+  position: fixed;
+  top: 300px;
+  right: 0;
+  z-index: 997;
+}
+
+/*# sourceMappingURL=cart.css.map */

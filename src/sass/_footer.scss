@@ -1,6 +1,11 @@
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
 .footer{
   width: 100%;
-  height: 180px;
+  height: 200px;
   background-color: black;
   position: relative;
   top: 110px;
@@ -12,8 +17,33 @@
 }
 
 .footer_content{
+  font-size: 12px;
   .footer_nav{
+    width: 500px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
+    padding: 18px 0;
+  }
+  .footer_logo{
+    width: 67px;
+    height: 50px;
+    margin: 0 auto;
+    img{
+      width: 100%;
+    }
+  }
+  .footer_info{
+    line-height: 20px;
+    color: #fff;
+    margin: 12px auto;
+    text-align: center;
+  }
+  .police{
+    width: 60px;
+    margin: 0 auto;
+    img{
+      width: 100%;
+    }
   }
 }

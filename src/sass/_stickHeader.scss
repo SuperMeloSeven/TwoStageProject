@@ -3,6 +3,10 @@ $aColor: #fff;
   color: $aColor;
   text-decoration: none;
 }
+%reg30percent{
+  width: 30%;
+}
+
 
 .stick_header{
   width: 100%;
@@ -46,6 +50,94 @@ $aColor: #fff;
     font-size: 12px;
   }
 }
+
+// 注册登录相关
+.header_extend{
+  width: 100%;
+  height: 320px;
+  background-color: #fff;
+  padding: 40px 0;
+  display: block;
+  .header_register{
+    height: 315px;
+    display: none;
+  }
+  .header_login{
+    height: 315px;
+    display: block;
+  }
+  .reg_form{
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    ul{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+}
+.reg_form{
+  .reg_title{
+    margin-bottom: 20px;
+  }
+  input{
+    width: 100%;
+    height: 40px;
+  }
+  .reg_l{
+    @extend %reg30percent;
+  }
+  .reg_c{
+    @extend %reg30percent;
+  }
+  .reg_r{
+    @extend %reg30percent;
+    .male{
+      width: 25%;
+      height: 20px;
+    }
+    .female{
+      width: 25%;
+      height: 20px;
+    }
+    a{
+      display: block;
+    }
+    .reg_btn{
+      height: 44px;
+      line-height: 46px;
+      text-align: center;
+      background-color: #ccc;
+      border: 1px solid #000;
+    }
+  }
+}
+.login_content{
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  .reg_confirm{
+    @extend %reg30percent;
+  }
+  .login_line{
+    @extend %reg30percent;
+    height: 100%;
+    .log_line{
+      width: 1px;
+      height: 100%;
+      background-color: #464646
+    }
+  }
+  .login_form{
+    @extend %reg30percent;
+  }
+}
+
 
 // 导航相关
 .nav_content{

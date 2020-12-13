@@ -53,6 +53,10 @@ table {
   text-decoration: none;
 }
 
+.reg_form .reg_l, .reg_form .reg_c, .reg_form .reg_r, .login_content .reg_confirm, .login_content .login_line, .login_content .login_form {
+  width: 30%;
+}
+
 .stick_header {
   width: 100%;
   background-color: black;
@@ -92,6 +96,76 @@ table {
   font-size: 12px;
 }
 
+.header_extend {
+  width: 100%;
+  height: 320px;
+  background-color: #fff;
+  padding: 40px 0;
+  display: block;
+}
+.header_extend .header_register {
+  height: 315px;
+  display: none;
+}
+.header_extend .header_login {
+  height: 315px;
+  display: block;
+}
+.header_extend .reg_form {
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.header_extend .reg_form ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.reg_form .reg_title {
+  margin-bottom: 20px;
+}
+.reg_form input {
+  width: 100%;
+  height: 40px;
+}
+.reg_form .reg_r .male {
+  width: 25%;
+  height: 20px;
+}
+.reg_form .reg_r .female {
+  width: 25%;
+  height: 20px;
+}
+.reg_form .reg_r a {
+  display: block;
+}
+.reg_form .reg_r .reg_btn {
+  height: 44px;
+  line-height: 46px;
+  text-align: center;
+  background-color: #ccc;
+  border: 1px solid #000;
+}
+
+.login_content {
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.login_content .login_line {
+  height: 100%;
+}
+.login_content .login_line .log_line {
+  width: 1px;
+  height: 100%;
+  background-color: #464646;
+}
+
 .nav_content {
   width: 800px;
   margin: 0 auto;
@@ -127,6 +201,13 @@ table {
 
 .notice .notice_content {
   font-size: 12px;
+}
+
+.line_chat {
+  position: fixed;
+  top: 300px;
+  right: 0;
+  z-index: 997;
 }
 
 .header_content a, .nav_content a, .banner a {
@@ -431,7 +512,6 @@ table {
   height: 610px;
   margin: 75px auto 0;
   text-align: center;
-  background-color: coral;
   position: relative;
   top: 110px;
 }
@@ -469,9 +549,14 @@ table {
   margin-bottom: 20px;
 }
 
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .footer {
   width: 100%;
-  height: 180px;
+  height: 200px;
   background-color: black;
   position: relative;
   top: 110px;
@@ -482,9 +567,36 @@ table {
   text-align: center;
 }
 
+.footer_content {
+  font-size: 12px;
+}
 .footer_content .footer_nav {
+  width: 500px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-around;
+  padding: 18px 0;
+}
+.footer_content .footer_logo {
+  width: 67px;
+  height: 50px;
+  margin: 0 auto;
+}
+.footer_content .footer_logo img {
+  width: 100%;
+}
+.footer_content .footer_info {
+  line-height: 20px;
+  color: #fff;
+  margin: 12px auto;
+  text-align: center;
+}
+.footer_content .police {
+  width: 60px;
+  margin: 0 auto;
+}
+.footer_content .police img {
+  width: 100%;
 }
 
 /*# sourceMappingURL=index.css.map */

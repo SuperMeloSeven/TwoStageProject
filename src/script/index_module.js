@@ -2,14 +2,13 @@ define([], () => {
   return {
     init() {
       $.ajax({
-        url: 'http://localhost/dashboard/converse_project/php/banner.php',
+        url: 'http://localhost/dashboard/converse_project/php/index_goods.php',
         dataType: 'json'
       }).done((data) => {
-        // console.log(data);
-
         // 二级菜单相关--tab选项卡
         const $nav_li = $('.nav_li');
         const $nav_extend = $('.nav_extend');
+        const $mask = $('.mask');
 
         // 幻灯片相关
         const $slide = $('.slide');
@@ -26,8 +25,10 @@ define([], () => {
         $nav_li.hover(function () {
           // $nav_extend.show();
           $nav_extend.eq($(this).index()).show().siblings('.nav_extend').hide();
+          $mask.show();
         }, function () {
           $nav_extend.hide();
+          $mask.hide();
         });
         $nav_extend.hover(function () {
           $(this).show();
@@ -43,7 +44,7 @@ define([], () => {
         }, function () {
           $timer = setInterval(() => {
             $slide_next.click();
-          }, 2000);
+          }, 3000);
         });
 
         $menu_li.hover(function () {
@@ -57,7 +58,21 @@ define([], () => {
 
           $timer = setInterval(() => {
             $slide_next.click();
-          }, 2000);
+          }, 3000);
+        });
+        $slide_next.hover(()=>{
+          clearInterval($timer);
+        },()=>{
+          $timer = setInterval(() => {
+            $slide_next.click();
+          }, 3000);
+        });
+        $slide_prev.hover(()=>{
+          clearInterval($timer);
+        },()=>{
+          $timer = setInterval(() => {
+            $slide_next.click();
+          }, 3000);
         });
         $slide_next.on('click', function () {
           // console.log($pic_num);
@@ -69,9 +84,9 @@ define([], () => {
           slide();
         });
 
-        // $timer = setInterval(() => { // 自动轮播
-        //   $slide_next.click();
-        // }, 3000);
+        $timer = setInterval(() => { // 自动轮播
+          $slide_next.click();
+        }, 3000);
 
         function slide() {
           if ($num === $pic_num) {
@@ -91,6 +106,33 @@ define([], () => {
           }
         }
 
+
+
+        // 渲染
+        console.log(data);
+        const $cate_detail = $('.cate_detail');
+        let $renderStr = '';
+        let $old_price = '';
+        let $new_price = '';
+        $.each(data,function (index,value) {
+          // console.log(value);
+          if(!value.oldPrice){
+            $old_price = `<p class="old_price" style="visibility:hidden"><del></del></p>`;
+            $new_price = `<p class="now_price1">￥${value.nowPrice}</p>`;
+          }else{
+            $old_price = `<p class="old_price"><del>￥${value.oldPrice}</del></p>`;
+            $new_price = `<p class="now_price2">￥${value.nowPrice}</p>`;
+          }
+          $renderStr += `
+            <li class="cate_detail_li">
+              <div class="ca_de_img"><a href="#" ><img src="${value.url}" alt=""></a></div>
+              <p class="ca_de_title"><a href="#">${value.title}</a></p>
+              ${$old_price}
+              ${$new_price}
+            </li>
+          `;     
+        });
+        $cate_detail.html($renderStr);    
       });
     }
   }

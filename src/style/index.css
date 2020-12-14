@@ -63,6 +63,17 @@ table {
   margin-bottom: 20px;
 }
 
+.mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 110px;
+  background-color: #000;
+  opacity: 0.8;
+  display: none;
+  z-index: 998;
+}
+
 .stick_header {
   width: 100%;
   background-color: black;
@@ -490,9 +501,11 @@ table {
   padding-bottom: 20px;
   text-align: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
 }
 .cate_detail .cate_detail_li {
+  width: 20%;
   height: 298px;
   font-size: 14px;
   border: 1px solid transparent;
@@ -501,6 +514,7 @@ table {
 .cate_detail .cate_detail_li .ca_de_img {
   width: 165px;
   height: 180px;
+  margin: 0 auto;
 }
 .cate_detail .cate_detail_li:hover {
   border: 1px solid #000;
@@ -519,12 +533,17 @@ table {
   margin-bottom: 5px;
 }
 
-.now_price {
+.now_price1 {
   font-weight: bold;
+  color: black;
+}
+
+.now_price2 {
+  font-weight: bold;
+  color: red;
 }
 
 .old_price {
-  color: red;
   font-weight: bold;
 }
 

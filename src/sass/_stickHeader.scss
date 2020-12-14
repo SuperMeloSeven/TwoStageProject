@@ -12,6 +12,18 @@ $aColor: #fff;
   margin-bottom: 20px;
 }
 
+// 遮罩
+.mask{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 110px;
+  background-color: #000;
+  opacity: 0.8;
+  display: none;
+  z-index: 998;
+}
+
 
 .stick_header{
   width: 100%;

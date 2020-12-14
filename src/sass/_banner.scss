@@ -14,14 +14,22 @@
 
 
 .banner{
+  width: 100%;
+  height: 655px;
+  // height: 618px;
   position: relative;
+  overflow: hidden;
   a{
       @extend %aCommon;
     }
   .slide{
-    height: 582px;
-    // background-color: brown;
+    width: 100%;
+    height: 618px;
     position: relative;
+    .slide_pic{
+      width: 100%;
+      float: left;
+    }
     img{
       width: 100%;
     }
@@ -60,10 +68,10 @@
     padding-top: 5px;
     line-height: 45px;
     font-size: 13px;
-    margin: 0 auto;
-    color: #333;
+    margin: 0 auto 30px;
+    color: #818181;
+    font-weight: bold;
     position: absolute;
-    bottom: 45px;
     background-color: #fff;
   }
 }
@@ -77,8 +85,9 @@
   .menu_li{
     cursor: pointer;
     border: 1px solid transparent;
-    &:hover{
+    &:hover,.active{
       border-top: 1px solid #333;
+      color: black;
     }
   }
 }

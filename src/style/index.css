@@ -108,6 +108,15 @@ table {
 .header_content .header_tools .font25 {
   font-size: 25px !important;
 }
+.header_content .header_tools .log_a_btn:hover {
+  text-decoration: underline;
+}
+.header_content .header_tools .reg_a_btn:hover {
+  text-decoration: underline;
+}
+.header_content .header_tools .reg_log_active {
+  text-decoration: underline;
+}
 
 .header_extend {
   width: 100%;
@@ -345,8 +354,8 @@ table {
 
 .banner {
   width: 100%;
-  height: 620px;
-  padding-bottom: 45px;
+  height: 600px;
+  padding-bottom: 40px;
   position: relative;
 }
 
@@ -358,7 +367,6 @@ table {
   width: 100%;
   height: auto;
   position: absolute;
-  display: none;
 }
 .slide .slide_pic img {
   width: 100%;
@@ -394,7 +402,7 @@ table {
 
 .slide_menu {
   width: 100%;
-  height: 40px;
+  height: 35px;
   padding-top: 5px;
   line-height: 45px;
   font-size: 13px;

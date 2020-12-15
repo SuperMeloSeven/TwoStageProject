@@ -108,6 +108,15 @@ table {
 .header_content .header_tools .font25 {
   font-size: 25px !important;
 }
+.header_content .header_tools .log_a_btn:hover {
+  text-decoration: underline;
+}
+.header_content .header_tools .reg_a_btn:hover {
+  text-decoration: underline;
+}
+.header_content .header_tools .reg_log_active {
+  text-decoration: underline;
+}
 
 .header_extend {
   width: 100%;
@@ -401,6 +410,16 @@ table {
   color: black;
   padding: 3px 15px;
   border: 1px solid black;
+}
+.fun_title a:hover {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid transparent;
+}
+.fun_title .fun_style {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid transparent;
 }
 
 .cate_detail {

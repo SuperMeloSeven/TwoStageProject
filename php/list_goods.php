@@ -35,7 +35,9 @@ class pagedata{
 
 };
 
+// 实例化
 $page = new pagedata();
+// 为实例对象添加属性
 $page->pagesize =$pagenum;
 $page->pagecontent = $arr;
 

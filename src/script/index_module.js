@@ -2,13 +2,15 @@ define(['jq_lazyload'], () => {
   return {
     init() {
       $.ajax({
-        url: 'http://localhost/dashboard/converse_project/php/index_goods.php',
+        url: 'http://10.31.161.62/dashboard/converse_project/php/index_goods.php',
         dataType: 'json'
       }).done((data) => {
         // 二级菜单相关--tab选项卡
         const $nav_li = $('.nav_li');
         const $nav_extend = $('.nav_extend');
         const $mask = $('.mask');
+        const $banner_height = $('.banner').height();
+
 
         // 幻灯片相关
         const $slide = $('.slide');
@@ -19,22 +21,104 @@ define(['jq_lazyload'], () => {
         const $pic_num = $slide_pic.size();
         let $timer = null;
         let $num = 0;
+        $('.slide_pic img').height($banner_height);
+
+
+        // 点击进入登录注册页面
+        const $log_a_btn = $('.log_a_btn');
+        const $reg_a_btn = $('.reg_a_btn');
+        const $confirm_btn = $('.confirm_btn');
 
 
         // 二级菜单--tab选项卡
-        $nav_li.hover(function () {
-          // $nav_extend.show();
-          $nav_extend.eq($(this).index()).show().siblings('.nav_extend').hide();
+        if ($('.header_login').css('display') === 'none' || $('.header_register').css('display') === 'none') {
+  
+          // $nav_li.hover(function () {
+          //   // $nav_extend.show();
+          //   $nav_extend.eq($(this).index()).show().siblings('.nav_extend').hide();
+          //   $mask.show();
+          // }, function () {
+          //   $nav_extend.hide();
+          //   $mask.hide();
+          // });
+          // $nav_extend.hover(function () {
+          //   $(this).show();
+          //   $mask.show();
+          // }, function () {
+          //   $(this).hide();
+          //   $mask.hide();
+          // });
+
+
+          $nav_li.bind({
+            mouseenter: function () {
+              $nav_extend.eq($(this).index()).show().siblings('.nav_extend').hide();
+              $mask.show();
+            },
+            mouseleave: function () {
+              $nav_extend.hide();
+              $mask.hide();
+            }
+          });
+          $nav_extend.bind({
+            mouseenter: function () {
+              $(this).show();
+              $mask.show();
+            },
+            mouseleave: function () {
+              $(this).hide();
+              $mask.hide();
+            }
+          });
+          console.log($('.header_login').css('display'));
+          console.log($('.header_register').css('display'));
+          
+        }
+
+        // 注册登录相关
+        $log_a_btn.on('click', function () {
+          $('.header_extend').css('display', 'block');
+          $('.header_login').css('display', 'block');
+          $('.header_register').css('display', 'none');
+          $log_a_btn.addClass('reg_log_active').siblings('.reg_a_btn').removeClass('reg_log_active');
           $mask.show();
-        }, function () {
-          $nav_extend.hide();
-          $mask.hide();
+          console.log($('.header_login').css('display'));
+          console.log($('.header_register').css('display'));
+
+          // 防止在注册登录页面取消遮罩
+          if ($('.header_login').css('display') === 'block' || $('.header_register').css('display') === 'block'){
+            $nav_li.unbind('mouseenter').unbind('mouseleave');
+            $nav_extend.unbind('mouseenter').unbind('mouseleave');
+  
+            console.log($('.header_login').css('display'));
+            console.log($('.header_register').css('display'));
+          }
         });
-        $nav_extend.hover(function () {
-          $(this).show();
+        $reg_a_btn.on('click', function () {
+          $('.header_extend').css('display', 'block');
+          $('.header_register').css('display', 'block');
+          $('.header_login').css('display', 'none');
+          $reg_a_btn.addClass('reg_log_active').siblings('.log_a_btn').removeClass('reg_log_active');
           $mask.show();
-        }, function () {
-          $(this).hide();
+
+          if ($('.header_login').css('display') === 'block' || $('.header_register').css('display') === 'block'){
+            $nav_li.unbind('mouseenter').unbind('mouseleave');
+            $nav_extend.unbind('mouseenter').unbind('mouseleave');
+  
+            console.log($('.header_login').css('display'));
+            console.log($('.header_register').css('display'));
+          }
+        });
+        $confirm_btn.on('click', function () {
+          $('.header_login').css('display', 'none');
+          $('.header_register').css('display', 'block');
+          $reg_a_btn.addClass('reg_log_active').siblings('.log_a_btn').removeClass('reg_log_active');
+        });
+        $mask.on('click', function () {
+          console.log(111);
+          $('.header_extend').css('display', 'none');
+          $('.header_login').css('display', 'none');
+          $('.header_register').css('display', 'none');
           $mask.hide();
         });
 
@@ -54,7 +138,7 @@ define(['jq_lazyload'], () => {
           $slide_pic.eq($(this).index()).show().siblings('.slide_pic').hide();
           $menu_li.eq($(this).index()).addClass('slide_active').siblings('.menu_li').removeClass('slide_active');
           $num = $(this).index();
-        },function () {
+        }, function () {
           $slide_pic.eq($(this).index()).show().siblings('.slide_pic').hide();
           $menu_li.eq($(this).index()).addClass('slide_active').siblings('.menu_li').removeClass('slide_active');
 
@@ -62,16 +146,16 @@ define(['jq_lazyload'], () => {
             $slide_next.click();
           }, 3000);
         });
-        $slide_next.hover(()=>{
+        $slide_next.hover(() => {
           clearInterval($timer);
-        },()=>{
+        }, () => {
           $timer = setInterval(() => {
             $slide_next.click();
           }, 3000);
         });
-        $slide_prev.hover(()=>{
+        $slide_prev.hover(() => {
           clearInterval($timer);
-        },()=>{
+        }, () => {
           $timer = setInterval(() => {
             $slide_next.click();
           }, 3000);
@@ -108,20 +192,18 @@ define(['jq_lazyload'], () => {
           }
         }
 
-
-
         // 渲染
         console.log(data);
         const $cate_detail = $('.cate_detail');
         let $renderStr = '';
         let $old_price = '';
         let $new_price = '';
-        $.each(data,function (index,value) {
+        $.each(data, function (index, value) {
           // console.log(value);
-          if(!value.oldPrice){
+          if (!value.oldPrice) {
             $old_price = `<p class="old_price" style="visibility:hidden"><del></del></p>`;
             $new_price = `<p class="now_price1">￥${value.nowPrice}</p>`;
-          }else{
+          } else {
             $old_price = `<p class="old_price"><del>￥${value.oldPrice}</del></p>`;
             $new_price = `<p class="now_price2">￥${value.nowPrice}</p>`;
           }
@@ -132,15 +214,15 @@ define(['jq_lazyload'], () => {
               ${$old_price}
               ${$new_price}
             </li>
-          `;     
+          `;
         });
         $cate_detail.html($renderStr);
         //懒加载---页面加载完成
         $(function () {
           $('img.lazy').lazyload({
-            effect: 'fadeIn'  //显示方法：谈入
+            effect: 'fadeIn' //显示方法：谈入
           });
-        }) 
+        })
       });
     }
   }

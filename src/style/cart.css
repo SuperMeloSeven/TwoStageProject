@@ -108,6 +108,15 @@ table {
 .header_content .header_tools .font25 {
   font-size: 25px !important;
 }
+.header_content .header_tools .log_a_btn:hover {
+  text-decoration: underline;
+}
+.header_content .header_tools .reg_a_btn:hover {
+  text-decoration: underline;
+}
+.header_content .header_tools .reg_log_active {
+  text-decoration: underline;
+}
 
 .header_extend {
   width: 100%;

@@ -2,7 +2,7 @@ define(['jq_lazyload', 'pagination'], () => {
   return {
     init() {
       $.ajax({
-        url: 'http://localhost/dashboard/converse_project/php/list_goods.php',
+        url: 'http://10.31.161.62/dashboard/converse_project/php/list_goods.php',
         dataType: 'json'
       }).done((data) => {
         // 二级菜单相关--tab选项卡
@@ -30,6 +30,11 @@ define(['jq_lazyload', 'pagination'], () => {
 
         // 渲染相关
         const $cate_detail = $('.cate_detail');
+        const $order_btn = $('.fun_title a');
+        let $array_default = []; //排序前的li放入此数组。
+        let $array = []; //排序后的数组
+        let $prev = []; //li里面的商品的前一个价格
+        let $next = []; //li里面的商品的后一个价格
         let $renderStr = '';
         let $old_price = '';
         let $new_price = '';
@@ -44,7 +49,7 @@ define(['jq_lazyload', 'pagination'], () => {
           }
           $renderStr += `
             <li class="cate_detail_li">
-              <div class="ca_de_img"><a href="#" ><img src="${value.url}" alt=""></a></div>
+              <div class="ca_de_img"><a href="detail.html?sid=${value.sid}" ><img class="lazy" data-original="${value.url}" width="165" height="165" /></a></div>
               <p class="ca_de_title"><a href="#">${value.title}</a></p>
               ${$old_price}
               ${$new_price}
@@ -52,51 +57,127 @@ define(['jq_lazyload', 'pagination'], () => {
           `;
         });
         $cate_detail.html($renderStr);
+        $("img.lazy").lazyload({
+          effect: "fadeIn"
+        });
+        //将li元素添加到排序前的数组中。
+        $('.cate_detail li').each(function (index, element) { //element:原生的元素对象
+          $array_default[index] = $(this); //排序前
+          $array[index] = $(this); //排序后
+        });
+        // console.log($array_default);
 
 
-        //2.进行分页设置(html页面载入分页的结构)
+        //进行分页设置(html页面载入分页的结构)
         $('.page').pagination({
-          pageCount: data.pageno, //总的页数
+          pageCount: data.pagesize, //总的页数
           jump: true, //是否开启跳转到指定的页数，布尔值。
           prevContent: '上一页', //将图标改成上一页下一页。
           nextContent: '下一页',
-          callback: function (api) {
-            console.log(api.getCurrent()); //获取当前的点击的页码。
+          callback: function (api) { //该行是固有用法
+            console.log(api.getCurrent()); //获取当前的点击的页码。该行是固有用法
             $.ajax({
-              url: 'http://localhost/dashboard/converse_project/php/list_goods.php',
+              url: 'http://10.31.161.62/dashboard/converse_project/php/list_goods.php',
               data: {
                 page: api.getCurrent()
               },
               dataType: 'json'
             }).done(function (datalist) {
-              datalist = datalist.pagedata; //获取接口里面数据
+              datalist = datalist.pagecontent; //获取接口里面数据
+              console.log(datalist);
               let $renderStr = '';
               $.each(datalist, function (index, value) {
+                if (!value.oldPrice) {
+                  $old_price = `<p class="old_price" style="visibility:hidden"><del></del></p>`;
+                  $new_price = `<p class="now_price1">￥${value.nowPrice}</p>`;
+                } else {
+                  $old_price = `<p class="old_price"><del>￥${value.oldPrice}</del></p>`;
+                  $new_price = `<p class="now_price2">￥${value.nowPrice}</p>`;
+                }
                 $renderStr += `
-                  <li>
-                      <a href="detail.html?sid=${value.sid}">
-                      <img class="lazy" data-original="${value.url}" width="165" height="165" />
-                          <p>${value.title}</p>
-                          <span>￥${value.price}</span>
-                      </a>
-                  </li>
+                <li class="cate_detail_li">
+                  <div class="ca_de_img"><a href="detail.html?sid=${value.sid}" ><img class="lazy" data-original="${value.url}" width="165" height="165" /></a></div>
+                  <p class="ca_de_title"><a href="#">${value.title}</a></p>
+                  ${$old_price}
+                  ${$new_price}
+                </li>
                 `;
               });
-              $list.html($renderStr);
+              $cate_detail.html($renderStr);
               //懒加载
               $("img.lazy").lazyload({
                 effect: "fadeIn"
               });
 
               //将li元素添加到排序前的数组中。
-              $('.list li').each(function (index, element) { //element:原生的元素对象
+              $('.cate_detail li').each(function (index, element) { //element:原生的元素对象
                 $array_default[index] = $(this); //排序前
                 $array[index] = $(this); //排序后
               });
-              console.log($array_default);
+              // console.log($array_default);
             });
           }
         });
+
+        // 点击按钮实现升序降序效果
+        $order_btn.each(function (index, element) {
+          // console.log(element);
+          $(element).on('click', function () {
+            $(this).addClass('fun_style').siblings('.fun_title a').removeClass('fun_style');
+          });
+        });
+        $order_btn.eq(0).on('click', function () {
+          //遍历渲染。
+          $.each($array_default, function(index, value) { //value就是li元素
+            $cate_detail.append(value);
+          });
+        });
+
+        $order_btn.eq(1).on('click', function () {
+          // console.log(111);
+
+          // 冒泡排序实现价格排序
+          for (let i = 0; i < $array.length - 1; i++) {
+            for (let j = 0; j < $array.length - 1 - i; j++) {
+              // console.log($array[j]);
+              $prev = parseFloat($array[j].find('p').last().html().substring(1)); //上一个价格
+              $next = parseFloat($array[j + 1].find('p').last().html().substring(1)); //下一个价格
+              if ($prev > $next) {
+                //通过价格的比较,交换的是里面的这个li元素
+                let temp = $array[j];
+                $array[j] = $array[j + 1];
+                $array[j + 1] = temp;
+              }
+            }
+          }
+          //遍历渲染。
+          $.each($array, function (index, value) { //value就是li元素
+            $cate_detail.append(value);
+          });
+          // console.log($array);
+        });
+
+        $order_btn.eq(2).on('click', function () {
+          // 冒泡排序实现价格排序
+          for (let i = 0; i < $array.length - 1; i++) {
+            for (let j = 0; j < $array.length - 1 - i; j++) {
+              // console.log($array[j]);
+              $prev = parseFloat($array[j].find('p').last().html().substring(1)); //上一个价格
+              $next = parseFloat($array[j + 1].find('p').last().html().substring(1)); //下一个价格
+              if ($prev < $next) {
+                //通过价格的比较,交换的是里面的这个li元素
+                let temp = $array[j];
+                $array[j] = $array[j + 1];
+                $array[j + 1] = temp;
+              }
+            }
+          }
+          //遍历渲染。
+          $.each($array, function (index, value) { //value就是li元素
+            $cate_detail.append(value);
+          });
+        });
+
       });
     }
   }

@@ -117,6 +117,9 @@ table {
 .header_content .header_tools .reg_log_active {
   text-decoration: underline;
 }
+.header_content .header_tools .go_cart:hover {
+  text-decoration: underline;
+}
 
 .header_extend {
   width: 100%;
@@ -152,6 +155,22 @@ table {
 .reg_form input {
   width: 100%;
   height: 40px;
+}
+.reg_form .reg_cue {
+  width: 100%;
+  display: block;
+  font-size: 13px;
+  color: red;
+}
+.reg_form .reg_c .reg_code {
+  width: 80% !important;
+}
+.reg_form .reg_c .reg_code_area {
+  height: 100%;
+  border: 1px solid black;
+  color: #000;
+  cursor: pointer;
+  font-size: 14px;
 }
 .reg_form .reg_r .male {
   width: 25%;

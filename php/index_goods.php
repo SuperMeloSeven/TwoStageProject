@@ -2,7 +2,7 @@
 include 'conn.php';
 
 // 接口数据输出
-$result = $conn->query("select * from cov_goods");
+$result = $conn->query("select * from cov_goods where sid<=8");
 $arr = array();
 for($i=0;$i<$result->num_rows;$i++){
     $arr[$i] = $result->fetch_assoc();

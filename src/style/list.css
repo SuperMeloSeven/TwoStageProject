@@ -405,13 +405,14 @@ table {
 
 .cate_detail {
   width: 100%;
-  height: auto;
+  padding-bottom: 20px;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 .cate_detail .cate_detail_li {
+  width: 30%;
   height: 298px;
   font-size: 14px;
   border: 1px solid transparent;
@@ -420,6 +421,7 @@ table {
 .cate_detail .cate_detail_li .ca_de_img {
   width: 165px;
   height: 180px;
+  margin: 0 auto;
 }
 .cate_detail .cate_detail_li:hover {
   border: 1px solid #000;
@@ -438,12 +440,17 @@ table {
   margin-bottom: 5px;
 }
 
-.now_price {
+.now_price1 {
   font-weight: bold;
+  color: black;
+}
+
+.now_price2 {
+  font-weight: bold;
+  color: red;
 }
 
 .old_price {
-  color: red;
   font-weight: bold;
 }
 

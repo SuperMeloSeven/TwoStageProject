@@ -1,4 +1,4 @@
-define([], () => {
+define(['jq_lazyload'], () => {
   return {
     init() {
       $.ajax({
@@ -32,8 +32,10 @@ define([], () => {
         });
         $nav_extend.hover(function () {
           $(this).show();
+          $mask.show();
         }, function () {
           $(this).hide();
+          $mask.hide();
         });
 
         // 轮播图逻辑
@@ -125,14 +127,20 @@ define([], () => {
           }
           $renderStr += `
             <li class="cate_detail_li">
-              <div class="ca_de_img"><a href="#" ><img src="${value.url}" alt=""></a></div>
+              <div class="ca_de_img"><a href="#" ><img class="lazy" data-original="${value.url}" width="165" height="165" /></a></div>
               <p class="ca_de_title"><a href="#">${value.title}</a></p>
               ${$old_price}
               ${$new_price}
             </li>
           `;     
         });
-        $cate_detail.html($renderStr);    
+        $cate_detail.html($renderStr);
+        //懒加载---页面加载完成
+        $(function () {
+          $('img.lazy').lazyload({
+            effect: 'fadeIn'  //显示方法：谈入
+          });
+        }) 
       });
     }
   }

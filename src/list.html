@@ -23,20 +23,20 @@
         </div>
         <ul class="header_tools">
           <li class="tools_li">
-            <a href="#">登陆</a><span>/</span><a href="#">注册</a>
+            <a href="#" class="log_a_btn">登陆</a><span>/</span><a href="#" class="reg_a_btn">注册</a>
             <a href="#"><span class="iconfont icon-bussiness-man font25"></span></a>
           </li>
           <li class="tools_li">
-            <a href="#">购物车</a><span><span class="iconfont icon-cart-full font25"></span>
+            <a href="cart.html" class="shop_cart">购物车</a><span><span class="iconfont icon-cart-full font25"></span>
           </li>
           <li class="tools_li">
-            <a href="#"><span class="iconfont icon-comments font25"></span></a> 
+            <a href="javascript:;"><span class="iconfont icon-comments font25"></span></a> 
           </li>
           <li class="tools_li">
-            <a href="#"><span class="iconfont icon-search font25"></span></a> 
+            <a href="javascript:;"><span class="iconfont icon-search font25"></span></a> 
           </li>
           <li class="tools_li">
-            <a href="#"><span class="iconfont icon-help font25"></span></a> 
+            <a href="javascript:;"><span class="iconfont icon-help font25"></span></a> 
           </li>
         </ul>
       </div>
@@ -71,48 +71,55 @@
             <li>
               <p class="reg_title">手机号码<b style="color: red;">*</b></p>
               <p class="reg_content">
-                <input type="text" name="telephone" placeholder="135xxxx5555">
+                <input type="text" name="telephone" placeholder="135xxxx5555" class="telephone">
               </p>
+              <span class="reg_cue"></span>
             </li>
             <li>
               <p class="reg_title">输入密码<b style="color: red;">*</b></p>
               <p class="reg_content">
-                <input type="text" name="password" placeholder="密码至少8位字符">
+                <input type="password" name="password" placeholder="密码至少8位字符" class="password">
               </p>
+              <span class="reg_cue"></span>
             </li>
             <li>
-              <p class="reg_title">验证码<b style="color: red;">*</b></p>
+              <p class="reg_title">确认密码<b style="color: red;">*</b></p>
               <p class="reg_content">
-                <input type="text" name="code" placeholder="请输入验证码">
+                <input type="password" name="password" placeholder="请再次输入密码" class="confirm_pwd">
               </p>
+              <span class="reg_cue"></span>
             </li>
           </ul>
           <ul class="reg_c">
             <li>
               <p class="reg_title">邮箱<b style="color: red;">*</b></p>
               <p class="reg_content">
-                <input type="text" name="email" placeholder="example@converse.com">
+                <input type="text" name="email" placeholder="example@converse.com" class="email">
               </p>
-            </li>
-            <li>
-              <p class="reg_title">确认密码<b style="color: red;">*</b></p>
-              <p class="reg_content">
-                <input type="text" name="password" placeholder="请再次输入密码">
-              </p>
-            </li>
-          </ul>
-          <ul class="reg_r">
-            <li style="height: 42px;">
-              <p class="reg_title">性别<b style="color: red;">*</b></p>
-              <p class="reg_content">
-                <input type="checkbox" class="male" name="gender">男的
-                <input type="checkbox" class="female" name="gender">女的
-              </p>
+              <span class="reg_cue"></span>
             </li>
             <li>
               <p class="reg_title">生日<b style="color: red;">*</b></p>
               <p class="reg_content">
-                <input type="text" name="birthday" placeholder="19991231">
+                <input type="text" name="birthday" placeholder="1999-12-31" class="birthday">
+              </p>
+              <span class="reg_cue"></span>
+            </li>
+            <li>
+              <p class="reg_title">验证码<b style="color: red;">*</b></p>
+              <p class="reg_content">
+                <input type="text" name="reg_code" placeholder="请输入验证码" class="reg_code">
+                <span class="reg_code_area">1111</span>              
+              </p>
+              <span class="reg_cue"></span>
+            </li>
+          </ul>
+          <ul class="reg_r">
+            <li>
+              <p class="reg_title">性别<b style="color: red;">*</b></p>
+              <p class="reg_content">
+                <input type="radio" name="gender" class="male">男的
+                <input type="radio" name="gender" class="female">女的
               </p>
             </li>
             <li class="reg_btn">

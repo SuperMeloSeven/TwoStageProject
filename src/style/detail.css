@@ -117,7 +117,10 @@ table {
 .header_content .header_tools .reg_log_active {
   text-decoration: underline;
 }
-.header_content .header_tools .go_cart:hover {
+.header_content .header_tools .shop_cart:hover {
+  text-decoration: underline;
+}
+.header_content .header_tools .logout:hover {
   text-decoration: underline;
 }
 
@@ -170,7 +173,7 @@ table {
   border: 1px solid black;
   color: #000;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
 }
 .reg_form .reg_r .male {
   width: 25%;
@@ -183,20 +186,39 @@ table {
 .reg_form .reg_r a {
   display: block;
 }
-.reg_form .reg_r .reg_btn {
+
+.reg_btn {
   height: 44px;
   line-height: 46px;
   text-align: center;
+  cursor: pointer;
+  color: white;
+}
+.reg_btn:hover {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
+.reg_btn .reg_submit {
+  height: 44px !important;
   background-color: black;
-  color: #ccc;
   border: 1px solid transparent;
+  color: white;
+  outline: none;
 }
-.reg_form .reg_r .reg_btn .font20 {
-  font-size: 20px;
-  margin-left: 5px;
+
+.reg_btn_disable {
+  height: 44px;
+  line-height: 46px;
+  text-align: center;
+  color: white;
+  cursor: default;
 }
-.reg_form .reg_r .reg_btn span {
-  visibility: visible;
+.reg_btn_disable .reg_submit {
+  height: 44px !important;
+  background-color: black;
+  outline: none;
+  border: 1px solid #000;
 }
 
 .login_content {
@@ -348,6 +370,9 @@ table {
 .pd20 {
   padding-left: 20px;
 }
+.pd20 a {
+  color: #fd3333 !important;
+}
 
 .active {
   border: 1px solid #333;
@@ -390,6 +415,9 @@ table {
   text-align: center;
   font-size: 24px;
   font-weight: bold;
+}
+.detail_title .goods_name {
+  margin-bottom: 10px;
 }
 
 .detail_img {
@@ -442,6 +470,9 @@ table {
   height: 100%;
   display: block;
 }
+.go_cart:hover {
+  background-color: #ff8a8a;
+}
 
 .bg20 {
   margin-bottom: 20px;
@@ -491,7 +522,7 @@ table {
 }
 .site_li .site_inner {
   font-weight: bold;
-  font-size: 13px;
+  font-size: 12px;
 }
 .site_li .site_inner a:hover {
   color: #999;

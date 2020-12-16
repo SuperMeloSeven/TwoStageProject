@@ -32,24 +32,6 @@ define(['jq_lazyload'], () => {
 
         // 二级菜单--tab选项卡
         if ($('.header_login').css('display') === 'none' || $('.header_register').css('display') === 'none') {
-  
-          // $nav_li.hover(function () {
-          //   // $nav_extend.show();
-          //   $nav_extend.eq($(this).index()).show().siblings('.nav_extend').hide();
-          //   $mask.show();
-          // }, function () {
-          //   $nav_extend.hide();
-          //   $mask.hide();
-          // });
-          // $nav_extend.hover(function () {
-          //   $(this).show();
-          //   $mask.show();
-          // }, function () {
-          //   $(this).hide();
-          //   $mask.hide();
-          // });
-
-
           $nav_li.bind({
             mouseenter: function () {
               $nav_extend.eq($(this).index()).show().siblings('.nav_extend').hide();
@@ -79,16 +61,11 @@ define(['jq_lazyload'], () => {
           $('.header_register').css('display', 'none');
           $log_a_btn.addClass('reg_log_active').siblings('.reg_a_btn').removeClass('reg_log_active');
           $mask.show();
-          console.log($('.header_login').css('display'));
-          console.log($('.header_register').css('display'));
 
           // 防止在注册登录页面取消遮罩
           if ($('.header_login').css('display') === 'block' || $('.header_register').css('display') === 'block'){
             $nav_li.unbind('mouseenter').unbind('mouseleave');
             $nav_extend.unbind('mouseenter').unbind('mouseleave');
-  
-            console.log($('.header_login').css('display'));
-            console.log($('.header_register').css('display'));
           }
         });
         $reg_a_btn.on('click', function () {
@@ -100,8 +77,7 @@ define(['jq_lazyload'], () => {
 
           if ($('.header_login').css('display') === 'block' || $('.header_register').css('display') === 'block'){
             $nav_li.unbind('mouseenter').unbind('mouseleave');
-            $nav_extend.unbind('mouseenter').unbind('mouseleave');
-  
+            $nav_extend.unbind('mouseenter').unbind('mouseleave');  
           }
         });
         $confirm_btn.on('click', function () {
@@ -110,11 +86,35 @@ define(['jq_lazyload'], () => {
           $reg_a_btn.addClass('reg_log_active').siblings('.log_a_btn').removeClass('reg_log_active');
         });
         $mask.on('click', function () {
-          console.log(111);
           $('.header_extend').css('display', 'none');
           $('.header_login').css('display', 'none');
           $('.header_register').css('display', 'none');
+          $reg_a_btn.removeClass('reg_log_active');
+          $log_a_btn.removeClass('reg_log_active');
+          $mask.show();
           $mask.hide();
+
+          // 重新绑定nav对应事件
+          $nav_li.bind({
+            mouseenter: function () {
+              $nav_extend.eq($(this).index()).show().siblings('.nav_extend').hide();
+              $mask.show();
+            },
+            mouseleave: function () {
+              $nav_extend.hide();
+              $mask.hide();
+            }
+          });
+          $nav_extend.bind({
+            mouseenter: function () {
+              $(this).show();
+              $mask.show();
+            },
+            mouseleave: function () {
+              $(this).hide();
+              $mask.hide();
+            }
+          });
         });
 
 
@@ -128,8 +128,10 @@ define(['jq_lazyload'], () => {
         $reg_code_area = $('.reg_code_area');
         $male = $('.male');
         $female = $('.female');
+        $reg_flag = $('.reg_flag');
         $reg_btn = $('.reg_btn');
         $reg_cue = $('.reg_cue');
+        $reg_form = $('.reg_form');
         let teleFlag = true;
         let pwdFlag = true;
         let pwdAgainFlag = true;
@@ -213,6 +215,7 @@ define(['jq_lazyload'], () => {
             $password.css({'border':'1px solid red','outline':'none'});
             pwdFlag = false;
           }
+          console.log($(this).val());
         });       
         // 确认密码
         $confirm_pwd.on('input',function () {
@@ -291,7 +294,9 @@ define(['jq_lazyload'], () => {
         $reg_code.blur(function () {          
           // $reg_code_area.html();
           if($(this).val()){
-            if ($(this).val() !== $reg_code_area.html()) {
+            // console.log($reg_code_area.html());
+            // console.log($(this).val());
+            if ($(this).val() === $reg_code_area.html()) {
               $reg_cue.eq(5).hide();
               $reg_code.css({'border':'1px solid #333','outline':'none'});
               codeFlag = true;
@@ -335,8 +340,99 @@ define(['jq_lazyload'], () => {
           codeStr = codeStr.split(',');
           return codeStr[codeStr.length-2];
         }
-        // 性别逻辑
+        // 性别逻辑 默认选择男性
+        $male.prop('checked',true);
         // 是否能够点击注册
+        $reg_flag.on('click',function () {
+          if($telephone.val() === ''){
+            $reg_cue.eq(0).show();
+            $reg_cue.eq(0).html('手机号码不可为空！');
+            $telephone.css({'border':'1px solid red','outline':'none'});
+            teleFlag = false;
+          }
+          if($password.val() === ''){
+            $reg_cue.eq(1).show();
+            $reg_cue.eq(1).html('密码不可为空！');
+            $password.css({'border':'1px solid red','outline':'none'});
+            pwdFlag = false;
+          }
+          if($confirm_pwd.val() === ''){
+            $reg_cue.eq(2).show();
+            $reg_cue.eq(2).html('密码不可为空！');
+            $confirm_pwd.css({'border':'1px solid red','outline':'none'});
+            pwdAgainFlag = false;
+          }
+          if($email.val() === ''){
+            $reg_cue.eq(3).show();
+            $reg_cue.eq(3).html('邮箱不可为空！');
+            $email.css({'border':'1px solid red','outline':'none'});
+            emailFlag = false;
+          }
+          if($birthday.val() === ''){
+            $reg_cue.eq(4).show();
+            $reg_cue.eq(4).html('生日不可为空！');
+            $birthday.css({'border':'1px solid red','outline':'none'});
+            birthFlag = false;
+          }
+          if($reg_code.val() === ''){
+            $reg_cue.eq(5).show();
+            $reg_cue.eq(5).html('验证码不可为空！');
+            $reg_code.css({'border':'1px solid red','outline':'none'});
+            codeFlag = false;
+          }
+          if(!teleFlag || !pwdFlag || !pwdAgainFlag || !emailFlag || !birthFlag || !codeFlag){
+            $reg_flag.removeClass('reg_btn').addClass('reg_btn_disable');
+          }else{
+            $reg_flag.removeClass('reg_btn_disable').addClass('reg_btn');
+          }
+        });
+        $reg_form.on('click',function () {
+          console.log(1111);
+          if($telephone.val() === ''){
+            $reg_cue.eq(0).show();
+            $reg_cue.eq(0).html('手机号码不可为空！');
+            $telephone.css({'border':'1px solid red','outline':'none'});
+            teleFlag = false;
+          }
+          if($password.val() === ''){
+            $reg_cue.eq(1).show();
+            $reg_cue.eq(1).html('密码不可为空！');
+            $password.css({'border':'1px solid red','outline':'none'});
+            pwdFlag = false;
+          }
+          if($confirm_pwd.val() === ''){
+            $reg_cue.eq(2).show();
+            $reg_cue.eq(2).html('密码不可为空！');
+            $confirm_pwd.css({'border':'1px solid red','outline':'none'});
+            pwdAgainFlag = false;
+          }
+          if($email.val() === ''){
+            $reg_cue.eq(3).show();
+            $reg_cue.eq(3).html('邮箱不可为空！');
+            $email.css({'border':'1px solid red','outline':'none'});
+            emailFlag = false;
+          }
+          if($birthday.val() === ''){
+            $reg_cue.eq(4).show();
+            $reg_cue.eq(4).html('生日不可为空！');
+            $birthday.css({'border':'1px solid red','outline':'none'});
+            birthFlag = false;
+          }
+          if($reg_code.val() === ''){
+            $reg_cue.eq(5).show();
+            $reg_cue.eq(5).html('验证码不可为空！');
+            $reg_code.css({'border':'1px solid red','outline':'none'});
+            codeFlag = false;
+          }
+          if(!teleFlag || !pwdFlag || !pwdAgainFlag || !emailFlag || !birthFlag || !codeFlag){
+            $reg_flag.removeClass('reg_btn').addClass('reg_btn_disable');
+          }else{
+            $reg_flag.removeClass('reg_btn_disable').addClass('reg_btn');
+          }
+        });
+        $reg_btn.on('click',function () {
+          
+        });
 
 
 

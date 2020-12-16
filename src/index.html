@@ -19,11 +19,12 @@
         </div>
         <ul class="header_tools">
           <li class="tools_li">
-            <a href="#" class="log_a_btn">登陆</a><span>/</span><a href="#" class="reg_a_btn">注册</a>
-            <a href="#"><span class="iconfont icon-bussiness-man font25"></span></a>
+            <a href="javascript:;" class="log_a_btn">登陆</a><span>/</span><a href="javascript:;" class="reg_a_btn">注册</a>
+            <a href="javascript:;" class="user_info" style="display: none;"><span class="username"></span><span class="logout">退出</span></a>
+            <a href="javascript:;"><span class="iconfont icon-bussiness-man font25"></span></a>
           </li>
           <li class="tools_li">
-            <a href="cart.html" class="go_cart">购物车</a><span><span class="iconfont icon-cart-full font25"></span>
+            <a href="cart.html" class="shop_cart">购物车</a><span><span class="iconfont icon-cart-full font25"></span>
           </li>
           <li class="tools_li">
             <a href="javascript:;"><span class="iconfont icon-comments font25"></span></a> 
@@ -62,7 +63,7 @@
         </div>
       </div>
       <div class="header_register">
-        <form action="#" method="POST" class="reg_form">
+        <form method="POST" class="reg_form">
           <ul class="reg_l">
             <li>
               <p class="reg_title">手机号码<b style="color: red;">*</b></p>
@@ -114,12 +115,14 @@
             <li>
               <p class="reg_title">性别<b style="color: red;">*</b></p>
               <p class="reg_content">
-                <input type="checkbox" class="male" name="gender" class="male">男的
-                <input type="checkbox" class="female" name="gender" class="female">女的
+                <input type="radio" name="gender" class="male">男的
+                <input type="radio" name="gender" class="female">女的
               </p>
+              <span class="reg_cue"></span>
             </li>
-            <li class="reg_btn">
-              <a href="#">注册账户<span class="iconfont font20">&gt;</span></a>
+            <li class="reg_btn reg_flag">
+              <input type="submit" value="注册账户" class="reg_submit"></span>
+              <!-- <a href="javascript:;"></a> -->
             </li>
           </ul>
         </form>

@@ -53,7 +53,7 @@
       border: 1px solid black;
       color: #000;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 13px;
     }
   }
   .reg_r{
@@ -69,34 +69,43 @@
     a{
       display: block;
     }
-    .reg_btn{
-      height: 44px;
-      line-height: 46px;
-      text-align: center;
-      background-color: black;
-      color: #ccc;
-      border: 1px solid transparent;
-      .font20{
-        font-size: 20px;
-        margin-left: 5px;
-      }
-      span{
-        visibility: visible;
-      }
-    }
-    // 不能注册时按钮的样式
-    // .reg_btn{
-    //   height: 44px;
-    //   line-height: 46px;
-    //   text-align: center;
-    //   background-color: #ccc;
-    //   border: 1px solid #000;
-    //   span{
-    //     visibility: hidden;
-    //   }
-    // }
   }
 }
+.reg_btn{
+  height: 44px;
+  line-height: 46px;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  &:hover{
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+  }
+  .reg_submit{
+    height: 44px !important;
+    background-color: black;
+    border: 1px solid transparent;
+    color: white;
+    outline: none;
+  }
+}
+// 不能注册时按钮的样式
+.reg_btn_disable{
+  height: 44px;
+  line-height: 46px;
+  text-align: center;
+  color: white;
+  cursor: default;
+  .reg_submit{
+    height: 44px !important;
+    background-color: black;
+    outline: none;
+    border: 1px solid #000;
+  }
+}
+
+
 .login_content{
   width: 1000px;
   height: 100%;

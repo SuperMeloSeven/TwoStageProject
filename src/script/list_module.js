@@ -1,31 +1,107 @@
 define(['jq_lazyload', 'pagination'], () => {
   return {
     init() {
+      // 头部相关
+      const $nav_li = $('.nav_li');
+      const $nav_extend = $('.nav_extend');
+      const $log_a_btn = $('.log_a_btn');
+      const $reg_a_btn = $('.reg_a_btn');
+      const $confirm_btn = $('.confirm_btn');
+      const $mask = $('.mask');
+
+      // 二级菜单--tab选项卡
+      if ($('.header_login').css('display') === 'none' || $('.header_register').css('display') === 'none') {
+        $nav_li.bind({
+          mouseenter: function () {
+            $nav_extend.eq($(this).index()).show().siblings('.nav_extend').hide();
+            $mask.show();
+          },
+          mouseleave: function () {
+            $nav_extend.hide();
+            $mask.hide();
+          }
+        });
+        $nav_extend.bind({
+          mouseenter: function () {
+            $(this).show();
+            $mask.show();
+          },
+          mouseleave: function () {
+            $(this).hide();
+            $mask.hide();
+          }
+        });
+
+      }
+      // 注册登录相关
+      $log_a_btn.on('click', function () {
+        $('.header_extend').css('display', 'block');
+        $('.header_login').css('display', 'block');
+        $('.header_register').css('display', 'none');
+        $log_a_btn.addClass('reg_log_active').siblings('.reg_a_btn').removeClass('reg_log_active');
+        $mask.show();
+
+        // 防止在注册登录页面取消遮罩
+        if ($('.header_login').css('display') === 'block' || $('.header_register').css('display') === 'block') {
+          $nav_li.unbind('mouseenter').unbind('mouseleave');
+          $nav_extend.unbind('mouseenter').unbind('mouseleave');
+        }
+      });
+      $reg_a_btn.on('click', function () {
+        $('.header_extend').css('display', 'block');
+        $('.header_register').css('display', 'block');
+        $('.header_login').css('display', 'none');
+        $reg_a_btn.addClass('reg_log_active').siblings('.log_a_btn').removeClass('reg_log_active');
+        $mask.show();
+
+        if ($('.header_login').css('display') === 'block' || $('.header_register').css('display') === 'block') {
+          $nav_li.unbind('mouseenter').unbind('mouseleave');
+          $nav_extend.unbind('mouseenter').unbind('mouseleave');
+        }
+      });
+      $confirm_btn.on('click', function () {
+        $('.header_login').css('display', 'none');
+        $('.header_register').css('display', 'block');
+        $reg_a_btn.addClass('reg_log_active').siblings('.log_a_btn').removeClass('reg_log_active');
+      });
+      $mask.on('click', function () {
+        $('.header_extend').css('display', 'none');
+        $('.header_login').css('display', 'none');
+        $('.header_register').css('display', 'none');
+        $reg_a_btn.removeClass('reg_log_active');
+        $log_a_btn.removeClass('reg_log_active');
+        $mask.show();
+        $mask.hide();
+
+        // 重新绑定nav对应事件
+        $nav_li.bind({
+          mouseenter: function () {
+            $nav_extend.eq($(this).index()).show().siblings('.nav_extend').hide();
+            $mask.show();
+          },
+          mouseleave: function () {
+            $nav_extend.hide();
+            $mask.hide();
+          }
+        });
+        $nav_extend.bind({
+          mouseenter: function () {
+            $(this).show();
+            $mask.show();
+          },
+          mouseleave: function () {
+            $(this).hide();
+            $mask.hide();
+          }
+        });
+      });
+
+      // -------------------------------------------------------
+
       $.ajax({
         url: 'http://10.31.161.62/dashboard/converse_project/php/list_goods.php',
         dataType: 'json'
       }).done((data) => {
-        // 二级菜单相关--tab选项卡
-        const $nav_li = $('.nav_li');
-        const $nav_extend = $('.nav_extend');
-        const $mask = $('.mask');
-        // 二级菜单--tab选项卡
-        $nav_li.hover(function () {
-          // $nav_extend.show();
-          $nav_extend.eq($(this).index()).show().siblings('.nav_extend').hide();
-          $mask.show();
-        }, function () {
-          $nav_extend.hide();
-          $mask.hide();
-        });
-        $nav_extend.hover(function () {
-          $(this).show();
-          $mask.show();
-        }, function () {
-          $(this).hide();
-          $mask.hide();
-        });
-
         // console.log(data);
 
         // 渲染相关
@@ -61,6 +137,8 @@ define(['jq_lazyload', 'pagination'], () => {
           effect: "fadeIn"
         });
         //将li元素添加到排序前的数组中。
+        $array_default = [];  //重置数组，处理在如最后一页一页数据少于前几页时，进行排序多渲染的问题
+        $array = [];//重置数组，处理在如最后一页一页数据少于前几页时，进行排序多渲染的问题
         $('.cate_detail li').each(function (index, element) { //element:原生的元素对象
           $array_default[index] = $(this); //排序前
           $array[index] = $(this); //排序后
@@ -110,6 +188,8 @@ define(['jq_lazyload', 'pagination'], () => {
               });
 
               //将li元素添加到排序前的数组中。
+              $array_default = [];
+              $array = [];
               $('.cate_detail li').each(function (index, element) { //element:原生的元素对象
                 $array_default[index] = $(this); //排序前
                 $array[index] = $(this); //排序后

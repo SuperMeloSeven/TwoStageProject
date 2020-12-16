@@ -9,6 +9,7 @@
   <title>匡威(CONVERSE)中国官方商城 - 匡威官方网站,正品匡威全系列,新品首发独家平台</title>
   <link rel="stylesheet" href="fonts/iconfont.css">
   <link rel="stylesheet" href="style/cart.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.3.6/require.min.js" defer async=true data-main="script/main.js" id="page" data-origin="cart_module"></script>
 </head>
 
 <body style="position: relative;">
@@ -16,24 +17,24 @@
     <div class="header">
       <div class="header_content">
         <div class="logo">
-          <a href="#"><img src="images/logo.png" alt="logo"></a>
+          <a href="index.html"><img src="images/logo.png" alt="logo"></a>
         </div>
         <ul class="header_tools">
           <li class="tools_li">
-            <a href="#">登陆</a><span>/</span><a href="#">注册</a>
+            <a href="#" class="log_a_btn">登陆</a><span>/</span><a href="#" class="reg_a_btn">注册</a>
             <a href="#"><span class="iconfont icon-bussiness-man font25"></span></a>
           </li>
           <li class="tools_li">
-            <a href="#">购物车</a><span><span class="iconfont icon-cart-full font25"></span>
+            <a href="cart.html" class="shop_cart">购物车</a><span><span class="iconfont icon-cart-full font25"></span>
           </li>
           <li class="tools_li">
-            <a href="#"><span class="iconfont icon-comments font25"></span></a> 
+            <a href="javascript:;"><span class="iconfont icon-comments font25"></span></a> 
           </li>
           <li class="tools_li">
-            <a href="#"><span class="iconfont icon-search font25"></span></a> 
+            <a href="javascript:;"><span class="iconfont icon-search font25"></span></a> 
           </li>
           <li class="tools_li">
-            <a href="#"><span class="iconfont icon-help font25"></span></a> 
+            <a href="javascript:;"><span class="iconfont icon-help font25"></span></a> 
           </li>
         </ul>
       </div>
@@ -68,48 +69,55 @@
             <li>
               <p class="reg_title">手机号码<b style="color: red;">*</b></p>
               <p class="reg_content">
-                <input type="text" name="telephone" placeholder="135xxxx5555">
+                <input type="text" name="telephone" placeholder="135xxxx5555" class="telephone">
               </p>
+              <span class="reg_cue"></span>
             </li>
             <li>
               <p class="reg_title">输入密码<b style="color: red;">*</b></p>
               <p class="reg_content">
-                <input type="text" name="password" placeholder="密码至少8位字符">
+                <input type="password" name="password" placeholder="密码至少8位字符" class="password">
               </p>
+              <span class="reg_cue"></span>
             </li>
             <li>
-              <p class="reg_title">验证码<b style="color: red;">*</b></p>
+              <p class="reg_title">确认密码<b style="color: red;">*</b></p>
               <p class="reg_content">
-                <input type="text" name="code" placeholder="请输入验证码">
+                <input type="password" name="password" placeholder="请再次输入密码" class="confirm_pwd">
               </p>
+              <span class="reg_cue"></span>
             </li>
           </ul>
           <ul class="reg_c">
             <li>
               <p class="reg_title">邮箱<b style="color: red;">*</b></p>
               <p class="reg_content">
-                <input type="text" name="email" placeholder="example@converse.com">
+                <input type="text" name="email" placeholder="example@converse.com" class="email">
               </p>
-            </li>
-            <li>
-              <p class="reg_title">确认密码<b style="color: red;">*</b></p>
-              <p class="reg_content">
-                <input type="text" name="password" placeholder="请再次输入密码">
-              </p>
-            </li>
-          </ul>
-          <ul class="reg_r">
-            <li style="height: 42px;">
-              <p class="reg_title">性别<b style="color: red;">*</b></p>
-              <p class="reg_content">
-                <input type="checkbox" class="male" name="gender">男的
-                <input type="checkbox" class="female" name="gender">女的
-              </p>
+              <span class="reg_cue"></span>
             </li>
             <li>
               <p class="reg_title">生日<b style="color: red;">*</b></p>
               <p class="reg_content">
-                <input type="text" name="birthday" placeholder="19991231">
+                <input type="text" name="birthday" placeholder="1999-12-31" class="birthday">
+              </p>
+              <span class="reg_cue"></span>
+            </li>
+            <li>
+              <p class="reg_title">验证码<b style="color: red;">*</b></p>
+              <p class="reg_content">
+                <input type="text" name="reg_code" placeholder="请输入验证码" class="reg_code">
+                <span class="reg_code_area">1111</span>              
+              </p>
+              <span class="reg_cue"></span>
+            </li>
+          </ul>
+          <ul class="reg_r">
+            <li>
+              <p class="reg_title">性别<b style="color: red;">*</b></p>
+              <p class="reg_content">
+                <input type="radio" name="gender" class="male">男的
+                <input type="radio" name="gender" class="female">女的
               </p>
             </li>
             <li class="reg_btn">
@@ -144,37 +152,37 @@
         <div class="nav_extend_item">
           <ul class="nav_extend_main">
             <li class="nav_extend_li">
-              <a href="http://10.31.161.62/dashboard/converse_project/src/list.html">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_ftw_nav_201026.jpg?2020120301" alt="">
                 <span>踩的</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="http://10.31.161.62/dashboard/converse_project/src/list.html">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_app_nav_201026.jpg?2020120301" alt="">
                 <span>穿的</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="http://10.31.161.62/dashboard/converse_project/src/list.html">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_acc_nav_201026.jpg?2020120301" alt="">
                 <span>戴的</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_warmapp_nav_201026.jpg?2020120301" alt="">
                 <span>外套/马甲</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_bottoms_nav_201026.jpg?2020120301" alt="">
                 <span>裤装</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_warmftw_nav_201026.jpg?2020120301" alt="">
                 <span>冬季保暖系列</span>
               </a>
@@ -183,37 +191,37 @@
           <div class="nav_extend_line"></div>
           <ul class="nav_extend_main">
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_ftw_nav_201026.jpg?2020120301" alt="">
                 <span>踩的</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_app_nav_201026.jpg?2020120301" alt="">
                 <span>穿的</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_acc_nav_201026.jpg?2020120301" alt="">
                 <span>戴的</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_warmapp_nav_201026.jpg?2020120301" alt="">
                 <span>外套/马甲</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_bottoms_nav_201026.jpg?2020120301" alt="">
                 <span>裤装</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_warmftw_nav_201026.jpg?2020120301" alt="">
                 <span>冬季保暖系列</span>
               </a>
@@ -225,37 +233,37 @@
         <div class="nav_extend_item">
           <ul class="nav_extend_main">
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_ftw_nav_201026.jpg?2020120301" alt="">
                 <span>踩的2</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_app_nav_201026.jpg?2020120301" alt="">
                 <span>穿的2</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_acc_nav_201026.jpg?2020120301" alt="">
                 <span>戴的2</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_warmapp_nav_201026.jpg?2020120301" alt="">
                 <span>外套/马甲2</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_bottoms_nav_201026.jpg?2020120301" alt="">
                 <span>裤装2</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_warmftw_nav_201026.jpg?2020120301" alt="">
                 <span>冬季保暖系列2</span>
               </a>
@@ -264,19 +272,19 @@
           <div class="nav_extend_line"></div>
           <ul class="nav_extend_main">
             <li class="nav_extend_li">
-              <a href="http://10.31.161.62/dashboard/converse_project/src/list.html">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_ftw_nav_201026.jpg?2020120301" alt="">
                 <span>踩的</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="http://10.31.161.62/dashboard/converse_project/src/list.html">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_app_nav_201026.jpg?2020120301" alt="">
                 <span>穿的</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="http://10.31.161.62/dashboard/converse_project/src/list.html">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_acc_nav_201026.jpg?2020120301" alt="">
                 <span>戴的</span>
               </a>
@@ -306,19 +314,19 @@
         <div class="nav_extend_item">
           <ul class="nav_extend_main">
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_ftw_nav_201026.jpg?2020120301" alt="">
                 <span>踩的3</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_warmapp_nav_201026.jpg?2020120301" alt="">
                 <span>外套/马甲3</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_bottoms_nav_201026.jpg?2020120301" alt="">
                 <span>裤装3</span>
               </a>
@@ -330,19 +338,19 @@
         <div class="nav_extend_item">
           <ul class="nav_extend_main">
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_ftw_nav_201026.jpg?2020120301" alt="">
                 <span>踩的4</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_warmapp_nav_201026.jpg?2020120301" alt="">
                 <span>外套/马甲4</span>
               </a>
             </li>
             <li class="nav_extend_li">
-              <a href="#">
+              <a href="list.html">
                 <img src="https://image.converse.com.cn/static/home/nav/man_bottoms_nav_201026.jpg?2020120301" alt="">
                 <span>裤装4</span>
               </a>
@@ -370,47 +378,48 @@
     </div>
     <div class="cart_body">
       <div class="cart_title">
-        <h1>您的购物车：1件商品</h1>
+        <h1>您的购物车：<span class="cart_goods_num"></span>件商品</h1>
       </div>
-      <div class="cart_detail">
-        <div class="ca_de_top">
-          <div>
-            <input type="checkbox" name="checkGoods" class="checkGoods">
+      <ul class="cart_detail">
+        <li class="cart_goods_li" style="display: none;">
+          <div class="ca_de_top">
+            <div>
+              <input type="checkbox" name="checkGoods" class="checkGoods">
+            </div>
+            <div class="del_goods">
+              <a href="javascript:;"><span class="iconfont icon-reeor"></span>删除</a>
+            </div>
           </div>
-          <div>
-            <a href="#"><span class="iconfont icon-reeor"></span>删除</a>
+          <div class="ca_de_goods">
+            <div class="goods_img">
+              <img src="" alt="">
+            </div>
+            <ul class="goods_info">
+              <li class="goods_info_title">【男女同款】One Star HanByeol</li>
+              <li class="goods_info_txt">型号：167324C281</li>
+              <li class="goods_info_txt">颜色：米白色</li>
+              <li class="goods_info_txt">尺码：41</li>
+            </ul>
+            <ul class="goods_price">
+              <li class="goods_price_li">￥<span></span></li>
+              <li class="goods_price_num"><a href="javascript:;" class="reduce_num">-</a><input type="text" class="goods_num" value="1"><a href="javascript:;" class="add_num">+</a></li>
+            </ul>
           </div>
-        </div>
-        <div class="ca_de_goods">
-          <div class="goods_img">
-            <img src="https://image.converse.com.cn/resources/product/167324C281/167324C281_1M_NEW.png?2020120301"
-              alt="">
-          </div>
-          <ul class="goods_info">
-            <li class="goods_info_title">【男女同款】One Star HanByeol</li>
-            <li class="goods_info_txt">型号：167324C281</li>
-            <li class="goods_info_txt">颜色：米白色</li>
-            <li class="goods_info_txt">尺码：41</li>
-          </ul>
-          <ul class="goods_price">
-            <li class="goods_price_li">￥539</li>
-            <li class="goods_price_num"><a href="#">-</a><input type="text" class="goods_num" value="1"><a
-                href="#">+</a></li>
-          </ul>
-        </div>
-      </div>
+        </li>
+      </ul>
       <div class="cart_bottom">
         <div class="cart_check">
-          <input type="checkbox" name="checkAll" class="checkAll">全选&nbsp;&nbsp;&nbsp;
-          <span>您已选中1件商品</span>
+          <input type="checkbox" name="checkAll" class="checkAll">全选&nbsp;&nbsp;&nbsp;          
+          <p>您已选中<span class="all_goods_num">0</span>件商品</p>
         </div>
         <ul class="cart_price">
-          <li class="ca_pr_li"><span>商品金额：</span><span class="ca_pr_total">￥669.00</span></li>
-          <li class="ca_pr_li"><span style="color: #db0d0d;">*</span>不含运费及优惠券折扣</li>
-          <li class="ca_pr_li"><span style="color: #db0d0d;">*以会员身份结算可享受免费配送服务</span></li>
+          <li class="ca_pr_li"><span>商品金额：</span><span class="ca_pr_total">￥0.00</span></li>
+          <li class="ca_pr_cue"><span style="color: #db0d0d;">*</span>不含运费及优惠券折扣</li>
+          <li class="ca_pr_cue"><span style="color: #db0d0d;">*以会员身份结算可享受免费配送服务</span></li>
           <li class="ca_pr_btn">
             <a href="#">结算</a>
           </li>
+        </ul>
       </div>
     </div>
   </div>

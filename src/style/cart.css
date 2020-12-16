@@ -117,7 +117,10 @@ table {
 .header_content .header_tools .reg_log_active {
   text-decoration: underline;
 }
-.header_content .header_tools .go_cart:hover {
+.header_content .header_tools .shop_cart:hover {
+  text-decoration: underline;
+}
+.header_content .header_tools .logout:hover {
   text-decoration: underline;
 }
 
@@ -170,7 +173,7 @@ table {
   border: 1px solid black;
   color: #000;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
 }
 .reg_form .reg_r .male {
   width: 25%;
@@ -183,20 +186,39 @@ table {
 .reg_form .reg_r a {
   display: block;
 }
-.reg_form .reg_r .reg_btn {
+
+.reg_btn {
   height: 44px;
   line-height: 46px;
   text-align: center;
+  cursor: pointer;
+  color: white;
+}
+.reg_btn:hover {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
+.reg_btn .reg_submit {
+  height: 44px !important;
   background-color: black;
-  color: #ccc;
   border: 1px solid transparent;
+  color: white;
+  outline: none;
 }
-.reg_form .reg_r .reg_btn .font20 {
-  font-size: 20px;
-  margin-left: 5px;
+
+.reg_btn_disable {
+  height: 44px;
+  line-height: 46px;
+  text-align: center;
+  color: white;
+  cursor: default;
 }
-.reg_form .reg_r .reg_btn span {
-  visibility: visible;
+.reg_btn_disable .reg_submit {
+  height: 44px !important;
+  background-color: black;
+  outline: none;
+  border: 1px solid #000;
 }
 
 .login_content {
@@ -360,7 +382,7 @@ table {
 }
 .page_content .cart_body {
   width: 1000px;
-  height: 500px;
+  height: auto;
   margin: 0 auto;
   padding-top: 50px;
 }
@@ -371,32 +393,63 @@ table {
 }
 
 .cart_detail {
+  width: 100%;
   padding-bottom: 20px;
   border-top: 1px solid #bbbaba;
-  border-bottom: 1px solid #bbbaba;
+}
+.cart_detail .cart_goods_li {
+  width: 100%;
+  height: 249px;
+  border-bottom: 1px dashed #bbbaba;
 }
 .cart_detail a {
   color: black;
 }
 .cart_detail .ca_de_top {
+  height: 15px;
   padding-top: 15px;
   display: flex;
   justify-content: space-between;
 }
-.cart_detail .ca_de_goods {
-  padding-top: 30px;
+
+.ca_de_goods {
+  width: 100%;
+  height: 220px;
+  padding: 20px 0;
   display: flex;
   justify-content: space-around;
 }
-.cart_detail .ca_de_goods .goods_price_li {
+.ca_de_goods .goods_img {
+  width: 30%;
+}
+.ca_de_goods .goods_img img {
+  width: 150px;
+  height: 150px;
+}
+.ca_de_goods .goods_info {
+  width: 30%;
+}
+
+.goods_price {
+  width: 30%;
+}
+.goods_price .goods_price_li {
   font-weight: bold;
   font-size: 18px;
   color: #db0d0d;
   margin-bottom: 20px;
+  text-align: center;
+}
+.goods_price .goods_price_num {
+  width: 60%;
+  margin: 0 auto;
+}
+.goods_price .goods_price_num .reduce_num {
+  margin-left: 40px;
 }
 
 .goods_info_title {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 18px;
   margin-bottom: 30px;
 }
@@ -429,16 +482,24 @@ table {
 .cart_bottom {
   display: flex;
   justify-content: space-between;
-  padding-top: 20px;
+  padding: 20px;
   font-size: 18px;
+}
+.cart_bottom .cart_check {
+  display: flex;
+  justify-content: space-between;
 }
 .cart_bottom .ca_pr_li {
   margin-bottom: 20px;
+  font-size: 18px !important;
 }
 .cart_bottom .ca_pr_li .ca_pr_total {
-  font-size: 18px !important;
   font-weight: bold;
   color: #db0d0d;
+}
+.cart_bottom .ca_pr_cue {
+  margin-bottom: 10px;
+  font-size: 12px;
 }
 
 .ca_pr_btn {

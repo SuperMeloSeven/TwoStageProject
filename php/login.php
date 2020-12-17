@@ -1,13 +1,13 @@
 <?php
 include "conn.php";
 
-if(isset($_POST['user']) && isset($_POST['pass'])){
-    $user = $_POST['user'];
-    $pass = sha1($_POST['pass']);//加密和加密进行匹配
-    $result=$conn->query("select * from cov_user where username='$user' and password='$pass'");
+if(isset($_POST['telephone']) && isset($_POST['password'])){
+    $telephone = $_POST['telephone'];
+    $password = sha1($_POST['password']);
+    $result=$conn->query("select * from cov_user where telephone='$telephone' and password='$password'");
     if($result->fetch_assoc()){
-        echo true;//用户名和密码匹配成功
+        echo true;
     }else{
-        echo false;//用户名和密码匹配失败
+        echo false;
     }
 }

@@ -61,20 +61,29 @@ $aColor: #fff;
     .font25{
       font-size: 25px !important;
     }
-    .log_a_btn:hover{
-      text-decoration: underline;
+    .log_a_btn{
+      visibility: visible;
+      &:hover{
+        text-decoration: underline;
+      }
     }
-    .reg_a_btn:hover{
-      text-decoration: underline;
-    }  
+    .reg_a_btn{
+      visibility: visible;
+      &:hover{
+        text-decoration: underline;
+      }  
+    }
     .reg_log_active{
       text-decoration: underline;
     }
     .shop_cart:hover{
       text-decoration: underline;
     }
-    .logout:hover{
-      text-decoration: underline;
+    .logout{
+      margin-left: 5px;
+      &:hover{
+        text-decoration: underline;
+      }
     }
   }
 }

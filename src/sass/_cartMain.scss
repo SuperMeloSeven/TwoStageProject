@@ -144,5 +144,8 @@
     height: 100%;
     background-color: #db0d0d;
     display: block;
+    &:hover{
+      background-color: #f76c6c;    
+    }
   }
 }

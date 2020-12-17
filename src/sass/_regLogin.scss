@@ -1,3 +1,20 @@
+%code_area{
+  height: 100%; 
+  border: 1px solid black;
+  color: #000;
+  cursor: pointer;
+  font-size: 13px;
+}
+%login_btn_style{
+  width: 61.7%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  outline: none;
+}
+
+
+
 // 注册登录相关
 .header_extend{
   width: 100%;
@@ -49,11 +66,7 @@
       width: 80% !important;
     }
     .reg_code_area{
-      height: 100%; 
-      border: 1px solid black;
-      color: #000;
-      cursor: pointer;
-      font-size: 13px;
+      @extend %code_area;
     }
   }
   .reg_r{
@@ -72,36 +85,48 @@
   }
 }
 .reg_btn{
-  height: 44px;
+  height: 44px !important;
   line-height: 46px;
-  text-align: center;
-  cursor: pointer;
+  background-color: black;
+  border: 1px solid transparent;
   color: white;
+  outline: none;
+  text-align: center;
+  color: white;
+  .font20{
+    font-size: 20px;
+    margin-left: 5px;
+  }
+  a{
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
   &:hover{
     background-color: white;
     border: 1px solid black;
-    color: black;
+    a{     
+      color: black;
+    }
   }
-  .reg_submit{
-    height: 44px !important;
-    background-color: black;
-    border: 1px solid transparent;
-    color: white;
-    outline: none;
+  span{
+    visibility: visible;
   }
 }
 // 不能注册时按钮的样式
 .reg_btn_disable{
-  height: 44px;
+  height: 44px !important;
   line-height: 46px;
+  background-color: #ccc;
+  outline: none;
+  border: 1px solid #000;
   text-align: center;
   color: white;
-  cursor: default;
-  .reg_submit{
-    height: 44px !important;
-    background-color: black;
-    outline: none;
-    border: 1px solid #000;
+  a{
+    cursor: default;
+  }
+  span{
+    visibility: hidden;
   }
 }
 
@@ -134,7 +159,20 @@
       @extend %form_title;
     }
     p{
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+    }
+    .login_bottom{
+      width: 60%;
+      height: 40px;
+      font-size: 13px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      .forget{
+        margin-top: 3px;
+        color: #464646;
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -150,7 +188,7 @@
   border: 1px solid transparent;
   cursor: pointer;
   .font20{
-    font-size: 20px;
+    font-size: 20px !important;
     margin-left: 5px;
   }
   &:hover{
@@ -163,8 +201,69 @@
   .login_option{
     width: 60%;
     input{
-      width: 100%;
+      width: 100% !important;
+      height: 35px !important;
+    }
+  }
+  .login_option_code{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    input{
+      width: 70%;
       height: 40px;
+    }
+    .login_code_area{
+      width: 20%;
+      height: 44px;
+      line-height: 44px;
+      font-size: 14px;
+      display: block;
+      text-align: center;
+      @extend %code_area;
+    }
+  }
+  .login_protocol{
+    width: 60%;
+    font-size: 13px;
+    a{
+      color: black;
+      text-decoration: underline;
+    }
+  }
+  .login_btn{
+    @extend %login_btn_style;
+    background-color: #000;
+    border: 1px solid transparent;
+    .font20{
+      font-size: 20px !important;
+      margin-left: 5px;
+      visibility: visible;
+    }
+    a{
+      width: 100%;
+      height: 100%;
+      display: block;
+      color: #fff;
+    }
+    &:hover{
+      background-color: white;
+      border: 1px solid black;
+      a{
+        color: black;
+      }
+    }
+  }
+  .login_btn_disable{
+    @extend %login_btn_style;
+    background-color: #ccc;
+    border: 1px solid #000;
+    color: white;
+    a{
+      cursor: default;
+    }
+    span{
+      visibility: hidden;
     }
   }
 }

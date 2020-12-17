@@ -108,8 +108,14 @@ table {
 .header_content .header_tools .font25 {
   font-size: 25px !important;
 }
+.header_content .header_tools .log_a_btn {
+  visibility: visible;
+}
 .header_content .header_tools .log_a_btn:hover {
   text-decoration: underline;
+}
+.header_content .header_tools .reg_a_btn {
+  visibility: visible;
 }
 .header_content .header_tools .reg_a_btn:hover {
   text-decoration: underline;
@@ -120,8 +126,27 @@ table {
 .header_content .header_tools .shop_cart:hover {
   text-decoration: underline;
 }
+.header_content .header_tools .logout {
+  margin-left: 5px;
+}
 .header_content .header_tools .logout:hover {
   text-decoration: underline;
+}
+
+.reg_form .reg_c .reg_code_area, .login_form .login_option_code .login_code_area {
+  height: 100%;
+  border: 1px solid black;
+  color: #000;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.login_form .login_btn, .login_form .login_btn_disable {
+  width: 61.7%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  outline: none;
 }
 
 .header_extend {
@@ -168,13 +193,6 @@ table {
 .reg_form .reg_c .reg_code {
   width: 80% !important;
 }
-.reg_form .reg_c .reg_code_area {
-  height: 100%;
-  border: 1px solid black;
-  color: #000;
-  cursor: pointer;
-  font-size: 13px;
-}
 .reg_form .reg_r .male {
   width: 25%;
   height: 20px;
@@ -188,37 +206,49 @@ table {
 }
 
 .reg_btn {
-  height: 44px;
-  line-height: 46px;
-  text-align: center;
-  cursor: pointer;
-  color: white;
-}
-.reg_btn:hover {
-  background-color: white;
-  border: 1px solid black;
-  color: black;
-}
-.reg_btn .reg_submit {
   height: 44px !important;
+  line-height: 46px;
   background-color: black;
   border: 1px solid transparent;
   color: white;
   outline: none;
+  text-align: center;
+  color: white;
+}
+.reg_btn .font20 {
+  font-size: 20px;
+  margin-left: 5px;
+}
+.reg_btn a {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.reg_btn:hover {
+  background-color: white;
+  border: 1px solid black;
+}
+.reg_btn:hover a {
+  color: black;
+}
+.reg_btn span {
+  visibility: visible;
 }
 
 .reg_btn_disable {
-  height: 44px;
-  line-height: 46px;
-  text-align: center;
-  color: white;
-  cursor: default;
-}
-.reg_btn_disable .reg_submit {
   height: 44px !important;
-  background-color: black;
+  line-height: 46px;
+  background-color: #ccc;
   outline: none;
   border: 1px solid #000;
+  text-align: center;
+  color: white;
+}
+.reg_btn_disable a {
+  cursor: default;
+}
+.reg_btn_disable span {
+  visibility: hidden;
 }
 
 .login_content {
@@ -245,7 +275,20 @@ table {
   width: 50%;
 }
 .login_content .login_form p {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+.login_content .login_form .login_bottom {
+  width: 60%;
+  height: 40px;
+  font-size: 13px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.login_content .login_form .login_bottom .forget {
+  margin-top: 3px;
+  color: #464646;
+  text-decoration: underline;
 }
 
 .confirm_btn {
@@ -261,7 +304,7 @@ table {
   cursor: pointer;
 }
 .confirm_btn .font20 {
-  font-size: 20px;
+  font-size: 20px !important;
   margin-left: 5px;
 }
 .confirm_btn:hover {
@@ -274,8 +317,66 @@ table {
   width: 60%;
 }
 .login_form .login_option input {
-  width: 100%;
+  width: 100% !important;
+  height: 35px !important;
+}
+.login_form .login_option_code {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+.login_form .login_option_code input {
+  width: 70%;
   height: 40px;
+}
+.login_form .login_option_code .login_code_area {
+  width: 20%;
+  height: 44px;
+  line-height: 44px;
+  font-size: 14px;
+  display: block;
+  text-align: center;
+}
+.login_form .login_protocol {
+  width: 60%;
+  font-size: 13px;
+}
+.login_form .login_protocol a {
+  color: black;
+  text-decoration: underline;
+}
+.login_form .login_btn {
+  background-color: #000;
+  border: 1px solid transparent;
+}
+.login_form .login_btn .font20 {
+  font-size: 20px !important;
+  margin-left: 5px;
+  visibility: visible;
+}
+.login_form .login_btn a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: #fff;
+}
+.login_form .login_btn:hover {
+  background-color: white;
+  border: 1px solid black;
+}
+.login_form .login_btn:hover a {
+  color: black;
+}
+.login_form .login_btn_disable {
+  background-color: #ccc;
+  border: 1px solid #000;
+  color: white;
+}
+.login_form .login_btn_disable a {
+  cursor: default;
+}
+.login_form .login_btn_disable span {
+  visibility: hidden;
 }
 
 .h131 {
@@ -732,6 +833,10 @@ table {
 
 .bg20 {
   margin-bottom: 20px;
+}
+
+.bg40 {
+  margin-bottom: 45px;
 }
 
 .site_map {

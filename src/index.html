@@ -19,8 +19,8 @@
         </div>
         <ul class="header_tools">
           <li class="tools_li">
-            <a href="javascript:;" class="log_a_btn">登陆</a><span>/</span><a href="javascript:;" class="reg_a_btn">注册</a>
-            <a href="javascript:;" class="user_info" style="display: none;"><span class="username"></span><span class="logout">退出</span></a>
+            <a href="javascript:;" class="log_a_btn">登陆</a><span class="tools_line">/</span><a href="javascript:;" class="reg_a_btn">注册</a>
+            <a href="javascript:;" class="user_info" style="display: none;">欢迎您，<span class="user_tel"></span><span class="logout">[退出]</span></a>
             <a href="javascript:;"><span class="iconfont icon-bussiness-man font25"></span></a>
           </li>
           <li class="tools_li">
@@ -52,13 +52,25 @@
           </div>
           <form action="#" method="POST" class="login_form">
             <h1>已经成为会员?</h1>
-            <p class="login_option"><input type="text" name="email" placeholder="邮箱" class="login_email"></p>
-            <p class="login_option"><input type="text" placeholder="账户密码" name="password" class="login_option"></p>
-            <p class="login_option"><input type="text" placeholder="请输入验证码" name="code" class="login_code"></p>
-            <div class="login_btn">
-              <a href="#">登陆</a>
+            <p class="login_option">
+              <input type="text" name="telephone" placeholder="电话号码" class="login_tel">
+            </p>
+            <p class="login_option"><input type="password" placeholder="账户密码" name="password" class="login_pass"></p>
+            <p class="login_option_code">
+              <input type="text" placeholder="请输入验证码" name="code" class="login_code">
+              <span class="login_code_area"></span>
+            </p>
+            <p class="login_protocol">
+              <input type="checkbox" name="protocol" class="protocol">一旦登录，即表明您同意匡威更新的
+              <a href="javascript:;">隐私政策</a>和<a href="javascript:;">使用规则</a>
+            </p>
+            <div class="login_btn login_flag">
+              <a href="#">登陆<span class="font20">&gt;</span></a>
             </div>
-            <p><input type="checkbox" name="remember" class="remember">记住用户名</p>
+            <div class="login_bottom">
+              <p><input type="checkbox" name="remember" class="remember">记住用户名</p>
+              <a href="javascript:;" class="forget">忘记密码?</a>
+            </div>
           </form>
         </div>
       </div>
@@ -121,8 +133,7 @@
               <span class="reg_cue"></span>
             </li>
             <li class="reg_btn reg_flag">
-              <input type="submit" value="注册账户" class="reg_submit"></span>
-              <!-- <a href="javascript:;"></a> -->
+              <a href="javascript:;">注册账户<span class="font20">&gt;</span></a>
             </li>
           </ul>
         </form>
@@ -647,12 +658,7 @@
         <p class="site_inner"><a href="#">优惠</a></p>
       </li>
       <li class="site_li">
-        <p class="site_title"><a href="#">男的</a></p>
-        <p class="site_inner"><a href="#">CHUCK TAYLOR ALL STAR</a></p>
-        <p class="site_inner bg20"><a href="#">CHUCK II</a></p>
-      </li>
-      <li class="site_li">
-        <p class="site_title"><a href="#">男的</a></p>
+        <p class="site_title"><a href="#">女的</a></p>
         <p class="site_inner"><a href="#">CHUCK TAYLOR ALL STAR</a></p>
         <p class="site_inner"><a href="#">CONVERSE CONS</a></p>
         <p class="site_inner"><a href="#">JACK PURCELL</a></p>
@@ -663,47 +669,45 @@
         <p class="site_inner"><a href="#">优惠</a></p>
       </li>
       <li class="site_li">
-        <p class="site_title"><a href="#">男的</a></p>
-        <p class="site_inner"><a href="#">CONVERSE CONS</a></p>
-        <p class="site_inner"><a href="#">JACK PURCELL</a></p>
-        <p class="site_inner bg20"><a href="#">CHUCK II</a></p>
-        <p class="site_inner"><a href="#">踩的</a></p>
-        <p class="site_inner"><a href="#">穿的</a></p>
-        <p class="site_inner"><a href="#">戴的</a></p>
-        <p class="site_inner"><a href="#">优惠</a></p>
-        <p class="site_inner"><a href="#">戴的</a></p>
-      </li>
-      <li class="site_li">
-        <p class="site_title"><a href="#">男的</a></p>
+        <p class="site_title"><a href="#">儿童</a></p>
         <p class="site_inner"><a href="#">CHUCK TAYLOR ALL STAR</a></p>
-        <p class="site_inner"><a href="#">CONVERSE CONS</a></p>
-        <p class="site_inner bg20"><a href="#">CHUCK II</a></p>
+        <p class="site_inner bg40"><a href="#">CONVERSE CONS</a></p>
         <p class="site_inner"><a href="#">踩的</a></p>
         <p class="site_inner"><a href="#">穿的</a></p>
         <p class="site_inner"><a href="#">戴的</a></p>
         <p class="site_inner"><a href="#">优惠</a></p>
       </li>
       <li class="site_li">
-        <p class="site_title"><a href="#">男的</a></p>
-        <p class="site_inner"><a href="#">CHUCK TAYLOR ALL STAR</a></p>
-        <p class="site_inner"><a href="#">CONVERSE CONS</a></p>
-        <p class="site_inner"><a href="#">JACK PURCELL</a></p>
-        <p class="site_inner bg20"><a href="#">CHUCK II</a></p>
-        <p class="site_inner"><a href="#">踩的</a></p>
-        <p class="site_inner"><a href="#">穿的</a></p>
-        <p class="site_inner"><a href="#">戴的</a></p>
-        <p class="site_inner"><a href="#">优惠</a></p>
+        <p class="site_title"><a href="#">GLOBAL</a></p>
+        <p class="site_inner"><a href="#">CONVERSE GLOBAL SITES</a></p>
       </li>
       <li class="site_li">
-        <p class="site_title"><a href="#">男的</a></p>
-        <p class="site_inner"><a href="#">CHUCK TAYLOR ALL STAR</a></p>
-        <p class="site_inner"><a href="#">CONVERSE CONS</a></p>
-        <p class="site_inner"><a href="#">JACK PURCELL</a></p>
-        <p class="site_inner bg20"><a href="#">CHUCK II</a></p>
-        <p class="site_inner"><a href="#">踩的</a></p>
-        <p class="site_inner"><a href="#">穿的</a></p>
-        <p class="site_inner"><a href="#">戴的</a></p>
-        <p class="site_inner"><a href="#">优惠</a></p>
+        <p class="site_title"><a href="#">我的账户</a></p>
+        <p class="site_inner"><a href="#">会员中心</a></p>
+        <p class="site_inner"><a href="#">现有订单</a></p>
+        <p class="site_inner"><a href="#">过去订单</a></p>
+        <p class="site_inner"><a href="#">退换货</a></p>
+        <p class="site_inner"><a href="#">账户设置</a></p>
+        <p class="site_inner"><a href="#">地址簿</a></p>
+        <p class="site_inner"><a href="#">我的优惠券</a></p>
+        <p class="site_inner"><a href="#">我的收藏</a></p>
+        <p class="site_inner"><a href="#">我的评论</a></p>
+      </li>
+      <li class="site_li">
+        <p class="site_title"><a href="#">帮助和购物指南</a></p>
+        <p class="site_inner"><a href="#">账户</a></p>
+        <p class="site_inner"><a href="#">订单</a></p>
+        <p class="site_inner"><a href="#">尺码</a></p>
+        <p class="site_inner"><a href="#">退货和退款</a></p>
+        <p class="site_inner"><a href="#">换货</a></p>
+        <p class="site_inner"><a href="#">配送</a></p>
+        <p class="site_inner"><a href="#">联系我们</a></p>
+        <p class="site_inner"><a href="#">常见问题</a></p>
+      </li>
+      <li class="site_li">
+        <p class="site_title"><a href="#">NIKE</a></p>
+        <p class="site_inner"><a href="#">NIKE+</a></p>
+        <p class="site_inner"><a href="#">JORDAN</a></p>
       </li>
     </ul>
   </div>

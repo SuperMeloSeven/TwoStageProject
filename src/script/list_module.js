@@ -50,13 +50,15 @@ define(['jq_lazyload', 'pagination'], () => {
                 existTel: $telephone.val()
               }
             }).done((data) => {
-              if (!data) {
+              data = data.substring(0,1) ;
+              if (data === '1') {
                 $reg_cue.eq(0).show().html('该手机号码已存在！');
                 $telephone.css({
                   'border': '1px solid red',
                   'outline': 'none'
                 });
-              } else {
+              } else if(data === 'e') { 
+                //这里的e是未成功注册返回error，字符串做了截取，和判断唯一性无关，由于是写在同一个接口文件中，区分
                 $reg_cue.eq(0).hide();
                 $telephone.css({
                   'border': '1px solid #333',
@@ -210,7 +212,7 @@ define(['jq_lazyload', 'pagination'], () => {
       // 生日验证
       $birthday.blur(function () {
         if ($(this).val()) {
-          let $regBirth = /^(19|bai20)\d{2}-(1[0-2]|0?[1-9])-(0?[1-9]|[1-2][0-9]|3[0-1])$/;
+          let $regBirth = /^(19|20)\d{2}-(1[0-2]|0?[1-9])-(0?[1-9]|[1-2][0-9]|3[0-1])$/;
           if ($regBirth.test($(this).val())) {
             $reg_cue.eq(4).hide();
             $birthday.css({
@@ -705,6 +707,8 @@ define(['jq_lazyload', 'pagination'], () => {
         let $renderStr = '';
         let $old_price = '';
         let $new_price = '';
+
+        let data_size = data.pagesize
         data = data.pagecontent;
         $.each(data, (index, value) => {
           if (!value.oldPrice) {
@@ -738,8 +742,11 @@ define(['jq_lazyload', 'pagination'], () => {
 
 
         //进行分页设置(html页面载入分页的结构)
+        // console.log(data);
+        // console.log(data_size);
+
         $('.page').pagination({
-          pageCount: data.pagesize, //总的页数
+          pageCount: data_size, //总的页数
           jump: true, //是否开启跳转到指定的页数，布尔值。
           prevContent: '上一页', //将图标改成上一页下一页。
           nextContent: '下一页',

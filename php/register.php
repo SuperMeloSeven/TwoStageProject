@@ -13,11 +13,11 @@ if(isset($_POST['existTel'])){
 }
 
 //2.获取前端表单传入的值。
-$telephone = $_POST['telephone'];
-$email = $_POST['email'];
-$password = sha1($_POST['password']);
-$birthday = $_POST['birthday'];
-$gender = $_POST['gender'];
+@$telephone = $_POST['telephone'];
+@$email = $_POST['email'];
+@$password = sha1($_POST['password']);
+@$birthday = $_POST['birthday'];
+@$gender = $_POST['gender'];
 
 if(isset($telephone) && isset($email) && isset($password) && isset($birthday) && isset($gender)){
   $conn->query("insert cov_user values(null,'$telephone','$email','$password','$birthday','$gender',NOW())");

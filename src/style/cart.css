@@ -180,6 +180,9 @@ table {
 .reg_form .reg_title {
   margin-bottom: 20px;
 }
+.reg_form .reg_content {
+  font-size: 14px;
+}
 .reg_form input {
   width: 100%;
   height: 40px;
@@ -587,6 +590,7 @@ table {
   font-size: 18px;
 }
 .cart_bottom .cart_check {
+  font-size: 15px;
   display: flex;
   justify-content: space-between;
 }

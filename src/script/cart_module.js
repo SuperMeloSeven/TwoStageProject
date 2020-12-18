@@ -50,13 +50,15 @@ define(['jq_cookie'], () => {
                 existTel: $telephone.val()
               }
             }).done((data) => {
-              if (!data) {
+              data = data.substring(0,1) ;
+              if (data === '1') {
                 $reg_cue.eq(0).show().html('该手机号码已存在！');
                 $telephone.css({
                   'border': '1px solid red',
                   'outline': 'none'
                 });
-              } else {
+              } else if(data === 'e') { 
+                //这里的e是未成功注册返回error，字符串做了截取，和判断唯一性无关，由于是写在同一个接口文件中，区分
                 $reg_cue.eq(0).hide();
                 $telephone.css({
                   'border': '1px solid #333',
@@ -210,7 +212,7 @@ define(['jq_cookie'], () => {
       // 生日验证
       $birthday.blur(function () {
         if ($(this).val()) {
-          let $regBirth = /^(19|bai20)\d{2}-(1[0-2]|0?[1-9])-(0?[1-9]|[1-2][0-9]|3[0-1])$/;
+          let $regBirth = /^(19|20)\d{2}-(1[0-2]|0?[1-9])-(0?[1-9]|[1-2][0-9]|3[0-1])$/;
           if ($regBirth.test($(this).val())) {
             $reg_cue.eq(4).hide();
             $birthday.css({

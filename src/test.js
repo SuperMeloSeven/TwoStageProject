@@ -6,3 +6,4 @@ console.log(b, 'b')
 console.log(c, 'c')
 
 console.log('master的更新');
+console.log('master的更新222');

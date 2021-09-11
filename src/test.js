@@ -5,4 +5,4 @@ let c = { headers: {'content': '00000', 'auth': 'xsdads'}, ...a }
 console.log(b, 'b')
 console.log(c, 'c')
 
-console.log('master的push');
+console.log('master的更新');
